@@ -20,7 +20,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   }
 
   void _handleTap(String label) {
-    print('Tapped on $label');
+    // print('Tapped on $label');
   }
 
   @override
@@ -148,7 +148,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               currentIndex: _selectedIndex,
               onTap: _onItemTapped,
               selectedItemColor: Colors.red,
-              unselectedItemColor: Colors.black,
+              unselectedItemColor: AppColor.Black,
               showUnselectedLabels: true,
               type: BottomNavigationBarType.fixed,
               items: const <BottomNavigationBarItem>[
