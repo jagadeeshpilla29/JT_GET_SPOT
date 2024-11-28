@@ -1,18 +1,26 @@
-const MENU = 'assets/images/menu.png';
-const BIKE = 'assets/images/superBike.png';
-const FILTER = 'assets/images/filter.png';
-const VECTOR = 'assets/images/Vector.png';
-const DOC = 'assets/images/doc.png';
-const INVICE = 'assets/images/Invoice.png';
-const PRICE_TAG = 'assets/images/PriceTag.png';
-const GROUP1 = 'assets/images/group1.png';
-const LEFT_ARROW = 'assets/images/corner-up-left.png';
-const GREEN_SCOOTY = 'assets/images/greenscooty.png';
-const SHOPPING = 'assets/images/shopping1.png';
-const SIDE_BAR = 'assets/images/sidebar.png';
-const PROFILE = 'assets/images/profile.png';
-const MESSAGE = 'assets/images/msg.png';
-const CALL = 'assets/images/call.png';
-const RATING = 'assets/images/StarRatings.png';
-const NOTIFICATION =  'assets/images/Notification.png';
-const LOGOUT ='assets/images/Logout.png';
+const LISTPARKING = 'assets/images/listparking.png';
+const HOME = 'assets/images/home.png';
+const MAIL = 'assets/images/mail.png';
+const MESSAGEBOX = 'assets/images/messageBox.png';
+const PARKING = 'assets/images/carparking.png';
+const PHONE = 'assets/images/phone.png';
+const SCANNER = 'assets/images/scan.png';
+const SETTINGS = 'assets/images/settings.png';
+const SLIDER1 = 'assets/images/slider1.png';
+const RENTPARKING = 'assets/images/rentparking.png';
+const BUYPARKING = 'assets/images/buyparking.png';
+const BOOKPARKING = 'assets/images/bookparking.png';
+const PAYPARKING = 'assets/images/payparking.png';
+const LEASENEWCAR = 'assets/images/leasenewcar.png';
+const LEASEBIKE = 'assets/images/leasebike.png';
+const LEASEUSEDCAR = 'assets/images/leaseusedcar.png';
+const NEWMODELS = 'assets/images/newmodels.png';
+const INSURANCE = 'assets/images/insurance.png';
+const CARWASHING = 'assets/images/carwashing.png';
+const RENTDRIVER = 'assets/images/rentdriver.png';
+const EVRESCUE = 'assets/images/evrescue.png';
+const POSTER = 'assets/images/poster.png';
+const RECENTPLACE = 'assets/images/recentplace.png';
+
+
+

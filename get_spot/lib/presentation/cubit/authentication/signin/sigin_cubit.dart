@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:get_spot/core/constants/bottomTab.dart';
 import 'package:get_spot/domain/usecase/authentication/signin_usecase.dart';
-import 'package:get_spot/presentation/screen/dashboard/dash_board_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'signin_state.dart';
 
@@ -9,6 +9,7 @@ class SignInCubit extends Cubit<SignInState> {
   final SignInValidationUseCase useCase;
 
   SignInCubit({required this.useCase}) : super(SignInInitial());
+  
 
   Future<void> SignIn(BuildContext context, mobileNumber, String otp) async {
     print(
@@ -62,7 +63,7 @@ class SignInCubit extends Cubit<SignInState> {
           prefs.setString('TOKEN', signEntity.data?.token ?? '');
           Navigator.of(context).pushAndRemoveUntil(
             MaterialPageRoute(
-              builder: (context) => DashboardScreen(),
+              builder: (context) => BottomTab(),
             ),
             (Route<dynamic> route) => false,
           );
