@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_spot/core/constants/bottomTab.dart';
 import 'package:get_spot/core/constants/colors.dart';
 import 'package:get_spot/core/injection.dart';
 import 'package:get_spot/presentation/cubit/authentication/currentcustomer/current_customer_cubit.dart';
@@ -9,12 +10,19 @@ import 'package:get_spot/presentation/screen/authentication/login_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
+  
   const SplashScreen({super.key});
 
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
 
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    _selectedIndex = index;
+  } 
+  
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
@@ -32,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
         if (token.isNotEmpty) {
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => LoginScreen()),
+            MaterialPageRoute(builder: (context) => BottomTab()),
           );
         } else {
           Navigator.pushReplacement(
