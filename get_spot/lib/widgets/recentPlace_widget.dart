@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get_spot/core/constants/colors.dart';
 import 'package:get_spot/core/constants/img_const.dart';
 
 class RecentPlacesWidget extends StatelessWidget {
@@ -28,30 +29,28 @@ class RecentPlacesWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Recent Place',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              TextButton(
-                onPressed: () {
-                  // Add navigation to the "See All" page
-                },
-                child: Text(
-                  'See all',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.orange,
-                  ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'Recent Place',
+              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+            ),
+            TextButton(
+              onPressed: () {
+                // Add navigation to the "See All" page
+              },
+              child: Text(
+                'See all',
+                style: TextStyle(
+                  fontSize: 13,
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.w600,
+                  color: AppColor.Orange,
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
         SizedBox(
           height: 200, // Adjust height for larger cards

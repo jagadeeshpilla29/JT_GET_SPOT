@@ -8,6 +8,6 @@ class AppColor {
   static Color Black = const Color(0xFF333333);
   static Color Orange = const Color(0xFFEC7210);
   static Color gray = const Color.fromARGB(255, 158, 158, 158);
-  // static Color orange = const Color.fromARGB(255, 255, 152, 0);
+  static Color black2 = const Color(0xFF444444);
 
 }

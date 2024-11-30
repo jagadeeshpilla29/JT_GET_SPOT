@@ -21,6 +21,8 @@ const RENTDRIVER = 'assets/images/rentdriver.png';
 const EVRESCUE = 'assets/images/evrescue.png';
 const POSTER = 'assets/images/poster.png';
 const RECENTPLACE = 'assets/images/recentplace.png';
+const SEARCH = 'assets/images/search.png';
+const NOTIFICATION = 'assets/images/notifications.png';
 
 
 
