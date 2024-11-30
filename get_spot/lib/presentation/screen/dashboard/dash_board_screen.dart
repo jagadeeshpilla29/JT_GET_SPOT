@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get_spot/core/constants/colors.dart';
 import 'package:get_spot/core/constants/img_const.dart';
+import 'package:get_spot/presentation/screen/renting/parking_space_detali_screen.dart';
 import 'package:get_spot/widgets/recentPlace_widget.dart';
 import 'package:get_spot/widgets/slider_widget.dart';
 
@@ -150,7 +151,7 @@ class HomeScreen extends StatelessWidget {
     switch (option) {
       case 'Rent\nParking':
       print('RentParking');
-        // Navigator.push(context, MaterialPageRoute(builder: (context) => RentParkingScreen()));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => ParkingSpaceDetailScreen()));
         break;
       case 'Buy\nParking':
             print('BuyParking');

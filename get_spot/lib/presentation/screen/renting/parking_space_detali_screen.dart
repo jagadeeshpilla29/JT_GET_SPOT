@@ -1,19 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:get_spot/components/custom_button.dart';
 import 'package:get_spot/core/constants/colors.dart';
-import 'package:get_spot/presentation/screen/dashboard/dash_board_screen.dart';
 
 class ParkingSpaceDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: AppColor.White,
+    return Scaffold(
+      backgroundColor: AppColor.White,
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         title: Text(
           "Rent Your Parking Space",
           style: TextStyle(
-              fontFamily: 'poppins', fontWeight: FontWeight.w600, fontSize: 18),
-        ),backgroundColor: AppColor.White,
+            fontFamily: 'poppins',
+            fontWeight: FontWeight.w600,
+            fontSize: 18,
+          ),
+        ),
+        backgroundColor: AppColor.White,
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
@@ -39,18 +48,18 @@ class ParkingSpaceDetailScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _buildInputField('City', 157.5,showIcon: true),
+                _buildInputField('City', 157.5, showIcon: true),
                 SizedBox(width: 16),
-                _buildInputField('State', 157.5,showIcon: true),
+                _buildInputField('State', 157.5, showIcon: true),
               ],
             ),
             const SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _buildInputField('Country', 157.5,showIcon: true),
+                _buildInputField('Country', 157.5, showIcon: true),
                 SizedBox(width: 16),
-                _buildInputField('Pin Code', 157.5,showIcon: false),
+                _buildInputField('Pin Code', 157.5, showIcon: false),
               ],
             ),
 
@@ -59,7 +68,7 @@ class ParkingSpaceDetailScreen extends StatelessWidget {
               height: 86,
               padding: EdgeInsets.symmetric(horizontal: 16),
               decoration: BoxDecoration(
-                color: AppColor.containergray,
+                color: AppColor.White2,
                 borderRadius: BorderRadius.circular(16),
               ),
               child: TextField(
@@ -93,8 +102,8 @@ class ParkingSpaceDetailScreen extends StatelessWidget {
                 _spaceField(
                     context, AssetImage('assets/images/garage.png'), 'Garage'),
                 SizedBox(width: 16),
-                _spaceField(
-                    context, AssetImage('assets/images/driveway.png'), 'Driveway'),
+                _spaceField(context, AssetImage('assets/images/driveway.png'),
+                    'Driveway'),
               ],
             ),
             const SizedBox(height: 16),
@@ -104,13 +113,15 @@ class ParkingSpaceDetailScreen extends StatelessWidget {
                 _spaceField(context, AssetImage('assets/images/openlot.png'),
                     'Open Lot'),
                 SizedBox(width: 16),
-                _spaceField(context, AssetImage('assets/images/coveredspace.png'),
+                _spaceField(
+                    context,
+                    AssetImage('assets/images/coveredspace.png'),
                     'Covered Space'),
               ],
             ),
             SizedBox(height: 24),
             CustomButton(
-                buttonText: 'Continue', onPressed: DashboardScreen.new),
+                buttonText: 'Continue', onPressed: () {  }, ),
             const SizedBox(height: 16),
           ],
         ),
@@ -124,7 +135,7 @@ class ParkingSpaceDetailScreen extends StatelessWidget {
       height: 113,
       padding: EdgeInsets.all(8),
       decoration: BoxDecoration(
-        color:  AppColor.containergray,
+        color: AppColor.White2,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
@@ -146,7 +157,7 @@ class ParkingSpaceDetailScreen extends StatelessWidget {
           ),
           Spacer(),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 16),
+            padding: EdgeInsets.symmetric(horizontal: 14),
             child: Text(
               text,
               style: TextStyle(
@@ -167,7 +178,7 @@ class ParkingSpaceDetailScreen extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
-        color:  AppColor.containergray,
+        color: AppColor.White2,
         borderRadius: BorderRadius.circular(16),
       ),
       child: TextFormField(
@@ -180,30 +191,32 @@ class ParkingSpaceDetailScreen extends StatelessWidget {
   }
 
   Widget _buildInputField(String label, double width, {bool showIcon = true}) {
-  return Container(
-    width: width,
-    height: 56,
-    padding: EdgeInsets.symmetric(horizontal: 16),
-    decoration: BoxDecoration(
-      color:  AppColor.containergray,
-      borderRadius: BorderRadius.circular(16),
-    ),
-    child: Row(
-      children: [
-        Expanded(
-          child: TextFormField(
-            decoration: InputDecoration(
-              labelText: label,
-              border: InputBorder.none,
+    return Container(
+      width: width,
+      height: 56,
+      padding: EdgeInsets.symmetric(horizontal: 16),
+      decoration: BoxDecoration(
+        color: AppColor.White2,
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: TextFormField(
+              decoration: InputDecoration(
+                labelText: label,
+                border: InputBorder.none,
+              ),
             ),
           ),
-        ),
-        if (showIcon)
-          Icon(Icons.arrow_drop_down_outlined,
-              size: 24, color:  AppColor.Black,),
-      ],
-    ),
-  );
-}
-
+          if (showIcon)
+            Icon(
+              Icons.arrow_drop_down_outlined,
+              size: 24,
+              color: AppColor.Black,
+            ),
+        ],
+      ),
+    );
+  }
 }
