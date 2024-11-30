@@ -8,178 +8,197 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Column(
-            children: [
-              _appBar(),
-              Expanded(
-                flex: 2,
-                child: Container(color:AppColor.Black),
-              ),
-              Expanded(
-                flex: 2,
-                child: Container(
-                  color: AppColor.White,
-                ),
-              ),
-              Expanded(
-                flex: 7,
-                child: Container(
-                  color: AppColor.White,
-                  child: ListView(
-                    padding: const EdgeInsets.only(
-                        top: 0.0, left: 16.0, right: 16.0),
-                    children: [
-                      const SizedBox(height: 10),
-                      SectionWidget(
-                        title: 'Parking Space',
-                        options: const [
-                          'Rent\nParking',
-                          'Buy\nParking',
-                          'Book\nParking',
-                          'Pay\nParking'
-                        ],
-                        images: const [
-                          RENTPARKING,
-                          BUYPARKING,
-                          BOOKPARKING,
-                          PAYPARKING,
-                        ],
-                      ),
-                      const SizedBox(height: 10),
-                      SectionWidget(
-                        title: 'Lease Plan',
-                        options: const [
-                          'Lease new\ncar',
-                          'Lease\nBike',
-                          'Lease used\ncar',
-                          'New\nModels'
-                        ],
-                        images: const [
-                          LEASENEWCAR,
-                          LEASEBIKE,
-                          LEASEUSEDCAR,
-                          NEWMODELS,
-                        ],
-                      ),
-                      const SizedBox(height: 10),
-                      SectionWidget(
-                        title: 'GetSpot Services',
-                        options: const [
-                          'Insurance',
-                          'Car Washing',
-                          'Rent Driver',
-                          'EV Rescue'
-                        ],
-                        images: const [
-                          INSURANCE,
-                          CARWASHING,
-                          RENTDRIVER,
-                          EVRESCUE,
-                        ],
-                      ),
-                      const SizedBox(height: 20),
-                      PosterWidget(),
-                      const SizedBox(height: 20),
-                      RecentPlacesWidget(),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Positioned(
-            top: 180,
-            left: 16,
-            right: 16,
-            child: SliderWidget(),
-          ),
-        ],
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(100),
+        child: _appBar(),
       ),
+      body: 
+      Scaffold(
+  backgroundColor: AppColor.White, 
+  body: SingleChildScrollView(
+    physics: const ClampingScrollPhysics(), 
+    child: Stack(
+      children: [
+        Column(
+          children: [
+            Container(
+              height: 100,
+              color: AppColor.Black,
+            ),
+            Container(
+              height: 100,
+              color: AppColor.White,
+            ),
+            Container(
+              height: MediaQuery.of(context).size.height,
+              color: AppColor.White,
+              child: Builder(
+                builder: (context) {
+                  final hasData = true; 
+                  if (hasData) {
+                    return ListView(
+                      physics: const NeverScrollableScrollPhysics(),
+                      padding: const EdgeInsets.only(
+                        top: 0.0,
+                        left: 16.0,
+                        right: 16.0,
+                      ),
+                      shrinkWrap: true,
+                      children: [
+                        const SizedBox(height: 10),
+                        SectionWidget(
+                          title: 'Parking Space',
+                          options: const [
+                            'Rent\nParking',
+                            'Buy\nParking',
+                            'Book\nParking',
+                            'Pay\nParking'
+                          ],
+                          images: const [
+                            RENTPARKING,
+                            BUYPARKING,
+                            BOOKPARKING,
+                            PAYPARKING,
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+                        SectionWidget(
+                          title: 'Lease Plan',
+                          options: const [
+                            'Lease new\ncar',
+                            'Lease\nBike',
+                            'Lease used\ncar',
+                            'New\nModels'
+                          ],
+                          images: const [
+                            LEASENEWCAR,
+                            LEASEBIKE,
+                            LEASEUSEDCAR,
+                            NEWMODELS,
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+                        SectionWidget(
+                          title: 'GetSpot Services',
+                          options: const [
+                            'Insurance',
+                            'Car Washing',
+                            'Rent Driver',
+                            'EV Rescue'
+                          ],
+                          images: const [
+                            INSURANCE,
+                            CARWASHING,
+                            RENTDRIVER,
+                            EVRESCUE,
+                          ],
+                        ),
+                        const SizedBox(height: 20),
+                        PosterWidget(),
+                        const SizedBox(height: 20),
+                        RecentPlacesWidget(),
+                      ],
+                    );
+                  // ignore: dead_code
+                  } else {
+                  }
+                },
+              ),
+            ),
+          ],
+        ),
+        Positioned(
+          left: 16,
+          right: 16,
+          child: SliderWidget(),
+        ),
+      ],
+    ),
+  ),
+)
     );
   }
-}
 
-_appBar() {
-  return AppBar(
-    backgroundColor: AppColor.Black,
-    elevation: 0,
-    toolbarHeight: 100,
-    title: Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10.0),
-      child: Row(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: Image.asset(
-              'assets/images/profileimg.png',
-              width: 45,
-              height: 45,
-              fit: BoxFit.cover,
-            ),
-          ),
-          const SizedBox(width: 15),
-          Expanded(
-            child: Container(
-              height: 45,
-              decoration: BoxDecoration(
-                color: AppColor.black2,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Row(
-                children: [
-                  const SizedBox(width: 10),
-                  ClipRRect(
-                    // borderRadius: BorderRadius.circular(10),
-                    child: Image.asset(
-                      SEARCH,
-                      width: 16,
-                      height: 16,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  Expanded(
-                    child: TextField(
-                      style: TextStyle(color: AppColor.White2),
-                      decoration: InputDecoration(
-                        hintText: 'Find Parking',
-                        hintStyle: TextStyle(
-                          color: AppColor.White2,
-                          fontFamily: 'Poppins',
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.w400,
-                        ),
-                        border: InputBorder.none,
-                        contentPadding: const EdgeInsets.symmetric(
-                          horizontal: 10,
-                          vertical: 12,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          const SizedBox(width: 15),
-          GestureDetector(
-            onTap: () {},
-            child: ClipRRect(
+  Widget _appBar() {
+    return AppBar(
+      backgroundColor: AppColor.Black,
+      elevation: 0,
+      toolbarHeight: 100,
+      title: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+        child: Row(
+          children: [
+            ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: Image.asset(
-                NOTIFICATION,
+                'assets/images/profileimg.png',
                 width: 45,
                 height: 45,
                 fit: BoxFit.cover,
               ),
             ),
-          ),
-        ],
+            const SizedBox(width: 15),
+            Expanded(
+              child: Container(
+                height: 45,
+                decoration: BoxDecoration(
+                  color: AppColor.black2,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Row(
+                  children: [
+                    const SizedBox(width: 10),
+                    ClipRRect(
+                      child: Image.asset(
+                        SEARCH,
+                        width: 16,
+                        height: 16,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Expanded(
+                      child: TextField(
+                        style: TextStyle(color: AppColor.White2),
+                        decoration: InputDecoration(
+                          hintText: 'Find Parking',
+                          hintStyle: TextStyle(
+                            color: AppColor.White2,
+                            fontFamily: 'Poppins',
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.w400,
+                          ),
+                          border: InputBorder.none,
+                          contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 10,
+                            vertical: 12,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(width: 15),
+            GestureDetector(
+              onTap: () {},
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.asset(
+                  NOTIFICATION,
+                  width: 45,
+                  height: 45,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
-    ),
-  );
+    );
+  }
 }
+
 
 class SectionWidget extends StatelessWidget {
   final String title;
