@@ -38,7 +38,7 @@ class _BottomTabState extends State<BottomTab> {
               type: BottomNavigationBarType.fixed,
               backgroundColor: AppColor.White,
               selectedItemColor: AppColor.Orange,
-              unselectedItemColor: AppColor.gray,
+              unselectedItemColor: AppColor.grey,
               showSelectedLabels: true,
               showUnselectedLabels: true,
               iconSize: 30,  
