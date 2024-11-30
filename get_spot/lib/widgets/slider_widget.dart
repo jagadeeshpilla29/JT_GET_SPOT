@@ -12,13 +12,14 @@ class SliderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CarouselSlider.builder(
-      
       itemCount: imageList.length,
       itemBuilder: (context, index, realIndex) {
-        return Image.asset(
-          imageList[index], 
-          fit: BoxFit.cover, 
-          
+        return ClipRRect(
+          borderRadius: BorderRadius.circular(10), 
+          child: Image.asset(
+            imageList[index], 
+            fit: BoxFit.cover, 
+          ),
         );
       },
       options: CarouselOptions(

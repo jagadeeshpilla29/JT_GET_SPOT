@@ -12,110 +12,42 @@ class HomeScreen extends StatelessWidget {
         preferredSize: const Size.fromHeight(100),
         child: _appBar(),
       ),
-      body: 
-      Scaffold(
-  backgroundColor: AppColor.White, 
-  body: SingleChildScrollView(
-    physics: const ClampingScrollPhysics(), 
-    child: Stack(
-      children: [
-        Column(
-          children: [
-            Container(
-              height: 100,
-              color: AppColor.Black,
-            ),
-            Container(
-              height: 100,
-              color: AppColor.White,
-            ),
-            Container(
-              height: MediaQuery.of(context).size.height,
-              color: AppColor.White,
-              child: Builder(
-                builder: (context) {
-                  final hasData = true; 
-                  if (hasData) {
-                    return ListView(
+      body: Scaffold(
+        backgroundColor: AppColor.White,
+        body: SingleChildScrollView(
+          physics: const ClampingScrollPhysics(),
+          child: Stack(
+            children: [
+              Column(
+                children: [
+                  Container(height: 100, color: AppColor.Black),
+                  Container(height: 100, color: AppColor.White),
+                  Container(
+                    height: MediaQuery.of(context).size.height,
+                    color: AppColor.White,
+                    child: ListView(
                       physics: const NeverScrollableScrollPhysics(),
-                      padding: const EdgeInsets.only(
-                        top: 0.0,
-                        left: 16.0,
-                        right: 16.0,
-                      ),
+                      padding: const EdgeInsets.all(16.0),
                       shrinkWrap: true,
                       children: [
-                        const SizedBox(height: 10),
-                        SectionWidget(
-                          title: 'Parking Space',
-                          options: const [
-                            'Rent\nParking',
-                            'Buy\nParking',
-                            'Book\nParking',
-                            'Pay\nParking'
-                          ],
-                          images: const [
-                            RENTPARKING,
-                            BUYPARKING,
-                            BOOKPARKING,
-                            PAYPARKING,
-                          ],
-                        ),
-                        const SizedBox(height: 10),
-                        SectionWidget(
-                          title: 'Lease Plan',
-                          options: const [
-                            'Lease new\ncar',
-                            'Lease\nBike',
-                            'Lease used\ncar',
-                            'New\nModels'
-                          ],
-                          images: const [
-                            LEASENEWCAR,
-                            LEASEBIKE,
-                            LEASEUSEDCAR,
-                            NEWMODELS,
-                          ],
-                        ),
-                        const SizedBox(height: 10),
-                        SectionWidget(
-                          title: 'GetSpot Services',
-                          options: const [
-                            'Insurance',
-                            'Car Washing',
-                            'Rent Driver',
-                            'EV Rescue'
-                          ],
-                          images: const [
-                            INSURANCE,
-                            CARWASHING,
-                            RENTDRIVER,
-                            EVRESCUE,
-                          ],
-                        ),
+                        _buildSection('Parking Space', ['Rent\nParking', 'Buy\nParking', 'Book\nParking', 'Pay\nParking'], [RENTPARKING, BUYPARKING, BOOKPARKING, PAYPARKING], context),
+                        _buildSection('Lease Plan', ['Lease new\ncar', 'Lease\nBike', 'Lease used\ncar', 'New\nModels'], [LEASENEWCAR, LEASEBIKE, LEASEUSEDCAR, NEWMODELS], context),
+                        _buildSection('GetSpot Services', ['Insurance', 'Car Washing', 'Rent Driver', 'EV Rescue'], [INSURANCE, CARWASHING, RENTDRIVER, EVRESCUE], context),
                         const SizedBox(height: 20),
                         PosterWidget(),
                         const SizedBox(height: 20),
                         RecentPlacesWidget(),
+                         const SizedBox(height: 20),
                       ],
-                    );
-                  // ignore: dead_code
-                  } else {
-                  }
-                },
+                    ),
+                  ),
+                ],
               ),
-            ),
-          ],
+              Positioned(left: 16, right: 16, child: SliderWidget()),
+            ],
+          ),
         ),
-        Positioned(
-          left: 16,
-          right: 16,
-          child: SliderWidget(),
-        ),
-      ],
-    ),
-  ),
-)
+      ),
     );
   }
 
@@ -130,48 +62,27 @@ class HomeScreen extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(10),
-              child: Image.asset(
-                'assets/images/profileimg.png',
-                width: 45,
-                height: 45,
-                fit: BoxFit.cover,
-              ),
+              child: Image.asset('assets/images/profileimg.png', width: 45, height: 45, fit: BoxFit.cover),
             ),
             const SizedBox(width: 15),
             Expanded(
               child: Container(
                 height: 45,
-                decoration: BoxDecoration(
-                  color: AppColor.black2,
-                  borderRadius: BorderRadius.circular(10),
-                ),
+                decoration: BoxDecoration(color: AppColor.black2, borderRadius: BorderRadius.circular(10)),
                 child: Row(
                   children: [
                     const SizedBox(width: 10),
                     ClipRRect(
-                      child: Image.asset(
-                        SEARCH,
-                        width: 16,
-                        height: 16,
-                        fit: BoxFit.cover,
-                      ),
+                      child: Image.asset(SEARCH, width: 16, height: 16, fit: BoxFit.cover),
                     ),
                     Expanded(
                       child: TextField(
                         style: TextStyle(color: AppColor.White2),
                         decoration: InputDecoration(
                           hintText: 'Find Parking',
-                          hintStyle: TextStyle(
-                            color: AppColor.White2,
-                            fontFamily: 'Poppins',
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.w400,
-                          ),
+                          hintStyle: TextStyle(color: AppColor.White2, fontFamily: 'Poppins', fontSize: 16.0),
                           border: InputBorder.none,
-                          contentPadding: const EdgeInsets.symmetric(
-                            horizontal: 10,
-                            vertical: 12,
-                          ),
+                          contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
                         ),
                       ),
                     ),
@@ -184,12 +95,7 @@ class HomeScreen extends StatelessWidget {
               onTap: () {},
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
-                child: Image.asset(
-                  NOTIFICATION,
-                  width: 45,
-                  height: 45,
-                  fit: BoxFit.cover,
-                ),
+                child: Image.asset(NOTIFICATION, width: 45, height: 45, fit: BoxFit.cover),
               ),
             ),
           ],
@@ -197,36 +103,18 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
-}
 
-
-class SectionWidget extends StatelessWidget {
-  final String title;
-  final List<String> options;
-  final List<String>? images;
-
-  SectionWidget({required this.title, required this.options, this.images});
-
-  @override
-  Widget build(BuildContext context) {
+  Widget _buildSection(String title, List<String> options, List<String> images, BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              title,
-              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
-            ),
+            Text(title, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
             TextButton(
               onPressed: () {},
-              child: Text('See all',
-                  style: TextStyle(
-                      fontSize: 13,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w600,
-                      color: AppColor.Orange)),
+              child: Text('See all', style: TextStyle(fontSize: 13, fontFamily: 'Poppins', fontWeight: FontWeight.w600, color: AppColor.Orange)),
             ),
           ],
         ),
@@ -234,38 +122,90 @@ class SectionWidget extends StatelessWidget {
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           padding: EdgeInsets.zero,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 4,
-          ),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
           itemCount: options.length,
           itemBuilder: (context, index) {
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                images != null && index < images!.length
-                    ? Image.asset(
-                        images![index],
-                        height: 60,
-                        width: 60,
-                        fit: BoxFit.cover,
-                      )
-                    : Icon(
-                        Icons.local_parking,
-                        size: 60,
-                        color: AppColor.Black,
-                      ),
-                const SizedBox(height: 5),
-                Text(
-                  options[index],
-                  textAlign: TextAlign.center,
-                  style:  TextStyle(fontSize: 12,fontFamily: 'Poppins',),
-                ),
-              ],
+            return GestureDetector(
+              onTap: () {
+                _navigateToScreen(context, options[index]);
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  index < images.length
+                      ? Image.asset(images[index], height: 60, width: 60, fit: BoxFit.cover)
+                      : Icon(Icons.local_parking, size: 60, color: AppColor.Black),
+                  const SizedBox(height: 5),
+                  Text(options[index], textAlign: TextAlign.center, style: TextStyle(fontSize: 12, fontFamily: 'Poppins')),
+                ],
+              ),
             );
           },
         ),
       ],
     );
+  }
+
+  void _navigateToScreen(BuildContext context, String option) {
+    switch (option) {
+      case 'Rent\nParking':
+      print('RentParking');
+        // Navigator.push(context, MaterialPageRoute(builder: (context) => RentParkingScreen()));
+        break;
+      case 'Buy\nParking':
+            print('BuyParking');
+        // Navigator.push(context, MaterialPageRoute(builder: (context) => BuyParkingScreen()));
+        break;
+      case 'Book\nParking':
+      print('BookParking');
+        // Navigator.push(context, MaterialPageRoute(builder: (context) => RentParkingScreen()));
+        break;
+      case 'Pay\nParking':
+      print('PayParking');
+        // Navigator.push(context, MaterialPageRoute(builder: (context) => RentParkingScreen()));
+        break;
+      case 'Lease new\ncar':
+      print('Lease new car');
+        // Navigator.push(context, MaterialPageRoute(builder: (context) => RentParkingScreen()));
+        break;
+      case 'Lease\nBike':
+      print('lease bike ');
+        // Navigator.push(context, MaterialPageRoute(builder: (context) => RentParkingScreen()));
+        break;
+      case 'Lease used\ncar':
+      print('lease used car');
+        // Navigator.push(context, MaterialPageRoute(builder: (context) => RentParkingScreen()));
+        break;
+      case 'New\nModels':
+      print('new models');
+        // Navigator.push(context, MaterialPageRoute(builder: (context) => RentParkingScreen()));
+        break;
+      case 'Insurance':
+      print('insurance');
+        // Navigator.push(context, MaterialPageRoute(builder: (context) => RentParkingScreen()));
+        break;
+      case 'Car Washing':
+      print('car washing');
+        // Navigator.push(context, MaterialPageRoute(builder: (context) => RentParkingScreen()));
+        break;
+      case 'Rent Driver':
+      print('rent driver');
+        // Navigator.push(context, MaterialPageRoute(builder: (context) => RentParkingScreen()));
+        break;
+      case 'EV Rescue':
+      print('ev rescue');
+        // Navigator.push(context, MaterialPageRoute(builder: (context) => RentParkingScreen()));
+        break;
+      default:
+        print('No screen defined for $option');
+    }
+  }
+}
+
+class RentParkingScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(body: Center(child: Text('Rent Parking Screen')));
   }
 }
 
@@ -274,20 +214,66 @@ class PosterWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 200,
-      decoration: BoxDecoration(
-        color: AppColor.Black,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(10),
-        child: Image.asset(
-          POSTER,
-          fit: BoxFit.cover,
-          width: double.infinity,
-        ),
+      decoration: BoxDecoration(color: AppColor.Black, borderRadius: BorderRadius.circular(10)),
+      child: Stack(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: Image.asset(
+              POSTER,
+              fit: BoxFit.cover,
+              width: double.infinity,
+            ),
+          ),
+          Positioned(
+            bottom: 20,
+            left: 16,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Enjoy 50% off on\nParking',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: AppColor.White,
+                  ),
+                ),
+                   Text(
+                  'Don\'t miss out-book\nyour spot today',
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w400,
+                    color: AppColor.grey,
+                    
+                  ),
+                ),
+                SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {
+                    // Add your button action here
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColor.White, // Button color
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                  ),
+                  child: Text(
+                    'Book now',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color:AppColor.Black,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
 }
-
 

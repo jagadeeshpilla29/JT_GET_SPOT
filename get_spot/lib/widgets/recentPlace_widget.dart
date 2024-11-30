@@ -52,6 +52,7 @@ class RecentPlacesWidget extends StatelessWidget {
             ),
           ],
         ),
+        SizedBox(height: 10,),
         SizedBox(
           height: 200, // Adjust height for larger cards
           child: ListView.builder(
