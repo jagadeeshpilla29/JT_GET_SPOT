@@ -8,10 +8,11 @@ class RentParkingSpaceScreen extends StatefulWidget {
 }
 
 class _RentParkingSpaceScreenState extends State<RentParkingSpaceScreen> {
-  final Map<String, dynamic> parkingSpace = {
+    final Map<String, dynamic> parkingSpace = {
     'name': 'Downtown Garage',
     'location': '47 W 13th St, New York',
-    'price': 1000,
+    'status': 'Available',
+    'price': 10000,
     'image': 'assets/images/garage1.png',
     'isFavorited': false,
   };
@@ -22,214 +23,119 @@ class _RentParkingSpaceScreenState extends State<RentParkingSpaceScreen> {
       appBar: AppBar(
         backgroundColor: AppColor.White,
         elevation: 1,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        title: Text(
-          'Rent Parking Space',
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-        ),
+        leading: IconButton(icon: Icon(Icons.arrow_back), onPressed: () => Navigator.pop(context)),
+        title: Text('Buy Sell Parking Space', style: TextStyle(color: AppColor.Black, fontWeight: FontWeight.w600)),
         centerTitle: true,
       ),
-      backgroundColor: AppColor.White2,
+      backgroundColor: AppColor.White,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            // Search box
-            Row(
-              children: [
-                Expanded(
-                  child: Container(
-                    height: 45, // Set the height of the search box
-                    decoration: BoxDecoration(
-                      color: AppColor.White, // Set background color
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: 'Search here...',
-                        hintStyle: TextStyle(
-                            color: Colors
-                                .grey), // Optional: to style the hint text
-                        prefixIcon: Padding(
-                          padding: const EdgeInsets.all(
-                              12.0), // Add padding for better alignment
-                          child: Image.asset(
-                            SEARCH, // Replace with your custom filter icon image
-                            width: 20, // Set the width of the icon
-                            height: 20, // Set the height of the icon
-                          ),
+            Center(
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    height: 45,
+                    width: MediaQuery.of(context).size.width * 0.75,
+                    decoration: BoxDecoration(color: AppColor.White, borderRadius: BorderRadius.circular(10)),
+                    child: Center(
+                      child: TextField(
+                        decoration: InputDecoration(
+                          hintText: 'Search here...',
+                          hintStyle: TextStyle(color: AppColor.grey),
+                          prefixIcon: Padding(padding: const EdgeInsets.all(12.0), child: Image.asset(SEARCH, width: 20, height: 20, color: AppColor.Black)),
+                          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide.none),
+                          filled: true,
+                          fillColor: AppColor.White2,
                         ),
                       ),
                     ),
                   ),
-                ),
-                SizedBox(width: 10),
-                GestureDetector(
-                  onTap: () {
-                    // Handle the filter icon tap event
-                  },
-                  child: Image.asset(
-                    FILTER, // Replace with your custom filter icon image
-                  ),
-                ),
-              ],
-            ),
-
-            const SizedBox(height: 16),
-            // "List" text
-            Text(
-              'List',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: AppColor.Black,
+                  SizedBox(width: 10),
+                  GestureDetector(onTap: () {}, child: Image.asset(FILTER)),
+                ],
               ),
             ),
-            const SizedBox(height: 16),
-            // Parking space card
+            SizedBox(height: 16),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 16.0),
+                child: Text('List', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: AppColor.Black)),
+              ),
+            ),
+            SizedBox(height: 16),
             Card(
-              color: AppColor.White2,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-              ),
+              color: AppColor.White,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
               child: SizedBox(
-                height: 138, // Set a fixed height for the card
+                height: 138,
+                width: MediaQuery.of(context).size.width * 0.85,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Image covering full card height
-                    ClipRRect(
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(15),
-                        bottomLeft: Radius.circular(15),
-                      ),
-                      child: Image.asset(
-                        parkingSpace['image'],
-                        fit: BoxFit.cover,
-                      ),
-                    ),
+                    ClipRRect(borderRadius: BorderRadius.only(topLeft: Radius.circular(15), bottomLeft: Radius.circular(15)), child: Image.asset(parkingSpace['image'], fit: BoxFit.cover)),
                     Expanded(
                       child: Padding(
                         padding: const EdgeInsets.only(left: 10),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            // Parking Space Name and Favorite Icon
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Expanded(
-                                  child: Text(
-                                    parkingSpace['name'],
-                                    style: const TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 14,
-                                    ),
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ),
+                                Expanded(child: Text(parkingSpace['name'], style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14), overflow: TextOverflow.ellipsis)),
                                 IconButton(
-                                  icon: Icon(
-                                    parkingSpace['isFavorited']
-                                        ? Icons.favorite
-                                        : Icons.favorite_border,
-                                    color: parkingSpace['isFavorited']
-                                        ? Colors.red
-                                        : Colors.grey,
-                                  ),
+                                  icon: Icon(parkingSpace['isFavorited'] ? Icons.favorite : Icons.favorite_border, color: parkingSpace['isFavorited'] ? Colors.red : Colors.grey, size: 16),
                                   onPressed: () {
                                     setState(() {
-                                      parkingSpace['isFavorited'] =
-                                          !parkingSpace['isFavorited'];
+                                      parkingSpace['isFavorited'] = !parkingSpace['isFavorited'];
                                     });
                                   },
                                 ),
                               ],
                             ),
-                            // Location Text
                             Row(
                               children: [
-                                Image.asset(
-                                  RENTLOCATION, // Path to your custom image icon
-                                  height:
-                                      16, // Adjust the size to match the text
-                                  width: 16,
-                                  fit: BoxFit
-                                      .contain, // Ensure the image fits properly
-                                ),
-                                const SizedBox(
-                                    width: 4), // Space between image and text
-                                Expanded(
-                                  child: Text(
-                                    parkingSpace['location'],
-                                    style: TextStyle(
-                                      color: AppColor.Black,
-                                      fontSize: 12,
+                                Image.asset(RENTLOCATION, height: 16, width: 16, fit: BoxFit.contain),
+                                SizedBox(width: 4),
+                                Expanded(child: Text(parkingSpace['location'], style: TextStyle(color: AppColor.Black, fontSize: 12), overflow: TextOverflow.ellipsis)),
+                              ],
+                            ),
+                            SizedBox(height: 8),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(parkingSpace['status'], style: const TextStyle(fontSize: 12), overflow: TextOverflow.ellipsis),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 16.0),
+                                  child: RichText(
+                                    text: TextSpan(
+                                      text: '\$',
+                                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: AppColor.PrimaryColor),
+                                      children: [TextSpan(text: '${parkingSpace['price']}', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: AppColor.PrimaryColor))],
                                     ),
-                                    overflow: TextOverflow.ellipsis,
                                   ),
                                 ),
                               ],
                             ),
-                            const SizedBox(height: 8),
-                            // Price as RichText
-                            RichText(
-                              text: TextSpan(
-                                text: '\$',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.bold,
-                                  color: AppColor.PrimaryColor,
-                                ),
-                                children: [
-                                  TextSpan(
-                                    text: '${parkingSpace['price']}',
-                                    style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold,
-                                      color: AppColor.PrimaryColor,
-                                    ),
-                                  ),
-                                  const TextSpan(
-                                    text: '/week',
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      color: Colors.grey,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            const Spacer(),
-                            // Buttons
+                            Spacer(),
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 ElevatedButton(
                                   onPressed: () {},
-                                  child: const Text('Book Visit'),
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: AppColor.PrimaryColor,
-                                    foregroundColor: AppColor.Black,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    minimumSize: const Size(82, 32),
-                                    padding:
-                                        EdgeInsets.zero, // Remove extra padding
-                                  ),
+                                  child: Text('Book Visit', style: TextStyle(fontSize: 10)),
+                                  style: ElevatedButton.styleFrom(backgroundColor: AppColor.PrimaryColor, foregroundColor: AppColor.Black, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)), minimumSize: Size(82, 32), padding: EdgeInsets.zero),
                                 ),
-                                TextButton(
-                                  onPressed: () {},
-                                  child: Text(
-                                    'View Contact',
-                                    style:
-                                        TextStyle(color: AppColor.PrimaryColor),
+                                SizedBox(
+                                  width: 101,
+                                  height: 32,
+                                  child: TextButton(
+                                    onPressed: () {},
+                                    style: TextButton.styleFrom(padding: EdgeInsets.zero),
+                                    child: Text('View Contact', style: TextStyle(color: AppColor.PrimaryColor, fontSize: 10)),
                                   ),
                                 ),
                               ],
