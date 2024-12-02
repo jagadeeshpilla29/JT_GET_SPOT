@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get_spot/core/constants/colors.dart';
 import 'package:get_spot/core/constants/img_const.dart';
+import 'package:get_spot/presentation/screen/buy/space_details.dart';
 
-class RentParkingSpaceScreen extends StatefulWidget {
+class BuySellParkingSpaceListScreen extends StatefulWidget {
   @override
-  _RentParkingSpaceScreenState createState() => _RentParkingSpaceScreenState();
+  _BuySellParkingSpaceListScreenState createState() => _BuySellParkingSpaceListScreenState();
 }
 
-class _RentParkingSpaceScreenState extends State<RentParkingSpaceScreen> {
+class _BuySellParkingSpaceListScreenState extends State<BuySellParkingSpaceListScreen> {
   final List<Map<String, dynamic>> parkingSpaces = [
     {
       'name': 'Downtown Garage',
@@ -146,7 +147,10 @@ class _RentParkingSpaceScreenState extends State<RentParkingSpaceScreen> {
                                   Row(
                                     children: [
                                       ElevatedButton(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Navigator.push(context, MaterialPageRoute(builder: (context) =>SpaceDetailsScreen()));
+                                          print("object");
+                                        },
                                         child: Text('Book Visit', style: TextStyle(fontSize: 10)),
                                         style: ElevatedButton.styleFrom(backgroundColor: AppColor.PrimaryColor, foregroundColor: AppColor.Black, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)), minimumSize: Size(82, 32), padding: EdgeInsets.zero),
                                       ),
