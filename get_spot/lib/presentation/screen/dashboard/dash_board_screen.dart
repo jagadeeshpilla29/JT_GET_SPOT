@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get_spot/core/constants/colors.dart';
 import 'package:get_spot/core/constants/img_const.dart';
-import 'package:get_spot/presentation/screen/renting/parking_space_detali_screen.dart';
+import 'package:get_spot/presentation/screen/rent%20parking%20space/rent_parking_space_list.dart';
+import 'package:get_spot/presentation/screen/rent%20your%20parking%20space/parking_space_detali_screen.dart';
 import 'package:get_spot/widgets/recentPlace_widget.dart';
 import 'package:get_spot/widgets/slider_widget.dart';
 
@@ -155,7 +156,7 @@ class HomeScreen extends StatelessWidget {
         break;
       case 'Buy\nParking':
             print('BuyParking');
-        // Navigator.push(context, MaterialPageRoute(builder: (context) => BuyParkingScreen()));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => RentParkingSpaceScreen()));
         break;
       case 'Book\nParking':
       print('BookParking');
