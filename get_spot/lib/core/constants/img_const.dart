@@ -23,6 +23,8 @@ const POSTER = 'assets/images/poster.png';
 const RECENTPLACE = 'assets/images/recentplace.png';
 const SEARCH = 'assets/images/search.png';
 const NOTIFICATION = 'assets/images/notifications.png';
+const RENTLOCATION = 'assets/images/rentlocation.png';
+const FILTER = 'assets/images/filter.png';
 
 
 
