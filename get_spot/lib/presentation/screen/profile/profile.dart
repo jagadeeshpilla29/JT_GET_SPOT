@@ -77,7 +77,7 @@ class ProfileScreen extends StatelessWidget {
           'Los Angeles, USA',
           style: TextStyle(
             fontSize: 14,
-            color: AppColor.gray,
+            color: AppColor.grey,
             fontWeight: FontWeight.w400,
           ),
         ),
@@ -122,7 +122,7 @@ class ProfileScreen extends StatelessWidget {
                                   fontSize: 14,
                                   fontWeight: FontWeight.w400,
                                   fontFamily: "Poppins",
-                                  color: AppColor.gray),
+                                  color: AppColor.grey),
                             ),
                           ),
                         ],
@@ -158,7 +158,7 @@ class ProfileScreen extends StatelessWidget {
                               style: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold,
-                                  color: AppColor.gray),
+                                  color: AppColor.grey),
                             ),
                           ),
                         ],

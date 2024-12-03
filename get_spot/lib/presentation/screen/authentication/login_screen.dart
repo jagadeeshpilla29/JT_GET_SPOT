@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_spot/components/custom_button.dart';
 import 'package:get_spot/core/constants/colors.dart';
+import 'package:get_spot/core/constants/img_const.dart';
 import 'package:get_spot/core/injection.dart';
 import 'package:get_spot/presentation/cubit/authentication/login/trigger_otp_cubit.dart';
 import 'package:get_spot/presentation/screen/authentication/signup_screen.dart';
@@ -79,7 +80,7 @@ class LoginScreen extends StatelessWidget {
                     padding: const EdgeInsets.all(
                         8.0), 
                     child: Image.asset(
-                      'assets/images/phone.png',
+                      PHONE,
                       width: 50,
                       height: 50,
                     ),
