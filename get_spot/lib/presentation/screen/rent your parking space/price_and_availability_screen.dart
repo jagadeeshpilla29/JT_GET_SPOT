@@ -13,9 +13,9 @@ class PriceAndAvailabilityScreen extends StatefulWidget {
 
 class _PriceAndAvailabilityScreenState
     extends State<PriceAndAvailabilityScreen> {
-  String selectedDuration = ""; // Track the selected duration
-  String startDate = ''; // To store the selected start date
-  String endDate = ''; // To store the selected end date
+  String selectedDuration = ""; 
+  String startDate = ''; 
+  String endDate = ''; 
   bool _isSwitchOn = false;
   final TextEditingController emailController = TextEditingController();
   get mobileNumberController => null;
@@ -276,7 +276,6 @@ class _PriceAndAvailabilityScreenState
             ),
             const SizedBox(width: 8),
             Expanded(
-              // This ensures text takes up only available space
               child: Text(
                 label,
                 style: TextStyle(
@@ -286,7 +285,7 @@ class _PriceAndAvailabilityScreenState
                   color:AppColor.Black,
                 ),
                 overflow:
-                    TextOverflow.ellipsis, // Truncate if space is insufficient
+                    TextOverflow.ellipsis, 
               ),
             ),
           ],
@@ -396,8 +395,8 @@ class _PriceAndAvailabilityScreenState
         _isSwitchOn = newValue;
       });
     },
-    activeColor: AppColor.yellow, // Color of the track when the switch is ON
-    inactiveTrackColor: AppColor.SwitchBgcolor, // Color of the track when the switch is OFF
+    activeColor: AppColor.yellow,
+    inactiveTrackColor: AppColor.SwitchBgcolor, 
     inactiveThumbColor: AppColor.White,
   ),
 ),
@@ -408,18 +407,18 @@ class _PriceAndAvailabilityScreenState
 
   Widget _buildPhotoUploadContainer() {
     return DottedBorder(
-        color: AppColor.yellow, // Set your desired border color
-        strokeWidth: 1, // Line width
-        radius: Radius.circular(16), // Border radius
-        borderType: BorderType.RRect, // Use a rounded rectangle border
-        //padding: EdgeInsets.all(50),  // Optional padding inside the border
+        color: AppColor.yellow, 
+        strokeWidth: 1,
+        radius: Radius.circular(16), 
+        borderType: BorderType.RRect, 
+        //padding: EdgeInsets.all(50), 
         child: Container(
           width: 327,
           height: 148,
           decoration: BoxDecoration(
-            color: AppColor.White, // Background color inside the border
+            color: AppColor.White,
             borderRadius: BorderRadius.circular(
-                16), // Make sure the inner container has rounded corners
+                16), 
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -432,12 +431,9 @@ class _PriceAndAvailabilityScreenState
                   );
 
                   if (result != null) {
-                    // You can access the selected file(s) path:
                     String? filePath = result.files.single.path;
                     print("Selected file path: $filePath");
-                    // Add logic to preview or upload the image
                   } else {
-                    // User canceled the picker
                     print("No file selected.");
                   }
                 },
