@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get_spot/components/custom_button.dart';
 import 'package:get_spot/core/constants/colors.dart';
-import 'package:get_spot/presentation/screen/rent%20your%20parking%20space/price_and_availability_screen.dart';
 
-class ParkingSpaceDetailScreen extends StatefulWidget {
+class buyParkingSpaceDetailScreen extends StatefulWidget {
   @override
   _ParkingSpaceDetailScreenState createState() => _ParkingSpaceDetailScreenState();
 }
 
-class _ParkingSpaceDetailScreenState extends State<ParkingSpaceDetailScreen> {
-  String selectedButton = "Sell"; // Default selected button
+class _ParkingSpaceDetailScreenState extends State<buyParkingSpaceDetailScreen> {
+  String selectedButton = "Sell"; 
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +22,10 @@ class _ParkingSpaceDetailScreenState extends State<ParkingSpaceDetailScreen> {
           },
         ),
         title: Text(
-          "Rent Your Parking Space",
+           "Buy Sell Parking Space",
           style: TextStyle(
             fontFamily: 'Poppins',
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w500,
             fontSize: 18,
           ),
         ),
@@ -37,118 +36,104 @@ class _ParkingSpaceDetailScreenState extends State<ParkingSpaceDetailScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Center(
-            //   child: Column(
-            //     children: [
-            //       Container(
-            //         width: 355,
-            //         height: 48,
-            //         padding: EdgeInsets.all(4),
-            //         decoration: BoxDecoration(
-            //           color: Colors.white,
-            //           boxShadow: [
-            //             BoxShadow(
-            //               color: Colors.black.withOpacity(0.08),
-            //               offset: Offset(0, 4),
-            //               blurRadius: 20,
-            //             ),
-            //           ],
-            //           borderRadius: BorderRadius.circular(12),
-            //         ),
-            //         child: Row(
-            //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //           children: [
-            //             // Item 1: "Buy"
-            //             GestureDetector(
-            //               onTap: () {
-            //                 setState(() {
-            //                   selectedButton = "Buy";
-            //                 });
-            //               },
-            //               child: Container(
-            //                 width: 155.5,
-            //                 height: 32,
-            //                 padding: EdgeInsets.all(8),
-            //                 decoration: BoxDecoration(
-            //                   color: selectedButton == "Buy"
-            //                       ? Color(0xFFF0C244) // Yellow when selected
-            //                       : Colors.transparent,
-            //                   borderRadius: BorderRadius.circular(8),
-            //                 ),
-            //                 child: Row(
-            //                   mainAxisAlignment: MainAxisAlignment.center,
-            //                   children: [
-            //                     Text(
-            //                       'Buy',
-            //                       style: TextStyle(
-            //                         fontFamily: 'Poppins',
-            //                         fontWeight: FontWeight.w500,
-            //                         fontSize: 12,
-            //                         height: 1.5,
-            //                         color: selectedButton == "Buy"
-            //                             ? Color(0xFF333333) // Dark text when selected
-            //                             : Color(0xFF777777),
-            //                       ),
-            //                     ),
-            //                   ],
-            //                 ),
-            //               ),
-            //             ),
-            //             // Item 2: "Sell"
-            //             GestureDetector(
-            //               onTap: () {
-            //                 setState(() {
-            //                   selectedButton = "Sell";
-            //                 });
-            //               },
-            //               child: Container(
-            //                 width: 155.5,
-            //                 height: 40,
-            //                 padding: EdgeInsets.all(8),
-            //                 decoration: BoxDecoration(
-            //                   color: selectedButton == "Sell"
-            //                       ? Color(0xFFF0C244) // Yellow when selected
-            //                       : Colors.transparent,
-            //                   boxShadow: [
-            //                     BoxShadow(
-            //                       color: Colors.black.withOpacity(0.02),
-            //                       offset: Offset(0, -1),
-            //                       blurRadius: 4,
-            //                     ),
-            //                     BoxShadow(
-            //                       color: Colors.black.withOpacity(0.02),
-            //                       offset: Offset(0, 2),
-            //                       blurRadius: 4,
-            //                     ),
-            //                   ],
-            //                   borderRadius: BorderRadius.circular(8),
-            //                 ),
-            //                 child: Row(
-            //                   mainAxisAlignment: MainAxisAlignment.center,
-            //                   children: [
-            //                     Text(
-            //                       'Sell',
-            //                       style: TextStyle(
-            //                         fontFamily: 'Poppins',
-            //                         fontWeight: FontWeight.w600,
-            //                         fontSize: 12,
-            //                         height: 1.5,
-            //                         color: selectedButton == "Sell"
-            //                             ? Color(0xFF333333) // Dark text when selected
-            //                             : Color(0xFF777777),
-            //                       ),
-            //                     ),
-            //                   ],
-            //                 ),
-            //               ),
-            //             ),
-            //           ],
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // ),
-            // SizedBox(height: 20),
+            Center(
+              child: Column(
+                children: [
+                  Container(
+                    width: 355,
+                    height: 48,
+                    padding: EdgeInsets.all(4),
+                    decoration: BoxDecoration(
+                      color: AppColor.White,
+                      boxShadow: [
+                        BoxShadow(
+                          color: AppColor.Black.withOpacity(0.08),
+                          offset: Offset(0, 4),
+                          blurRadius: 20,
+                        ),
+                      ],
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              selectedButton = "Buy";
+                            });
+                          },
+                          child: Container(
+                            width: 155.5,
+                            height: 32,
+                            padding: EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              color: selectedButton == "Buy"
+                                  ? AppColor.yellow 
+                                  : Colors.transparent,
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Buy',
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 12,
+                                    height: 1.5,
+                                    color: selectedButton == "Buy"
+                                        ? AppColor.Black 
+                                        : AppColor.Black1
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              selectedButton = "Sell";
+                            });
+                          },
+                          child: Container(
+                            width: 155.5,
+                            height: 40,
+                            padding: EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              color: selectedButton == "Sell"
+                                  ? AppColor.yellow // Yellow when selected
+                                  : Colors.transparent,
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Sell',
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 12,
+                                    height: 1.5,
+                                    color: selectedButton == "Sell"
+                                        ? AppColor.Black
+                                        : AppColor.Black1,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 20),
             Text(
               "Parking Space Detail",
               style: TextStyle(
@@ -240,8 +225,7 @@ class _ParkingSpaceDetailScreenState extends State<ParkingSpaceDetailScreen> {
             CustomButton(
   buttonText: 'Continue',
   onPressed: () {
-    //ParkingSpaceRow
-    (); // Call the function
+    ();
   },
 ),
 
@@ -288,7 +272,7 @@ Widget _spaceField(BuildContext context, ImageProvider image, String text) {
                 fontFamily: 'Poppins',
                 fontWeight: FontWeight.w500,
                 fontSize: 13,
-                color: Colors.black,
+                color: AppColor.Black,
               ),
               textAlign: TextAlign.center,
             ),
@@ -333,13 +317,12 @@ Widget _spaceField(BuildContext context, ImageProvider image, String text) {
           ),
           IconButton(
             onPressed: () {
-              // Add map selection logic here
               print("Choose on the map pressed");
             },
             icon: Image.asset(
-              'assets/images/location.png', // Update with the path to your image asset
-              width: 24, // Set width to match the original icon size
-              height: 24, // Set height to match the original icon size
+              'assets/images/loc1.png', 
+              width: 24, 
+              height: 24, 
             ),
             tooltip: "Choose on the map",
           ),
