@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_spot/components/custom_button.dart';
 import 'package:get_spot/core/constants/colors.dart';
-import 'package:get_spot/presentation/screen/rent%20your%20parking%20space/price_and_availability_screen.dart';
 
 class buyParkingSpaceDetailScreen extends StatefulWidget {
   @override
@@ -107,18 +106,6 @@ class _ParkingSpaceDetailScreenState extends State<buyParkingSpaceDetailScreen> 
                               color: selectedButton == "Sell"
                                   ? AppColor.yellow // Yellow when selected
                                   : Colors.transparent,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: AppColor.Black,
-                                  offset: Offset(0, -1),
-                                  blurRadius: 4,
-                                ),
-                                BoxShadow(
-                                  color: AppColor.Black,
-                                  offset: Offset(0, 2),
-                                  blurRadius: 4,
-                                ),
-                              ],
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Row(

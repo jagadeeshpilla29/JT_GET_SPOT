@@ -18,7 +18,6 @@ class _PriceAndAvailabilityScreenState
   String endDate = ''; 
   bool _isSwitchOn = false;
   TextEditingController _depositController = TextEditingController();
-
   final TextEditingController emailController = TextEditingController();
   get mobileNumberController => null;
 
