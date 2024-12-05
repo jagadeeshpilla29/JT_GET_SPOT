@@ -64,7 +64,7 @@ class HomeScreen extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(10),
-              child: Image.asset('assets/images/profileimg.png', width: 45, height: 45, fit: BoxFit.cover),
+              child: Image.asset(PROFILEIMG, width: 45, height: 45, fit: BoxFit.cover),
             ),
             const SizedBox(width: 15),
             Expanded(
@@ -204,12 +204,6 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class RentParkingScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: Text('Rent Parking Screen')));
-  }
-}
 
 class PosterWidget extends StatelessWidget {
   @override
