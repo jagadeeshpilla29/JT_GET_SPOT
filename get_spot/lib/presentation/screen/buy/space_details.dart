@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
+import 'package:get_spot/core/constants/colors.dart';
+import 'package:get_spot/core/constants/img_const.dart';
+import 'package:get_spot/presentation/screen/buy/filter_screen.dart';
 
 class SpaceDetailsScreen extends StatelessWidget {
   @override
@@ -6,6 +10,7 @@ class SpaceDetailsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Space Details'),
+        backgroundColor: AppColor.White,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () => Navigator.pop(context),
@@ -17,7 +22,12 @@ class SpaceDetailsScreen extends StatelessWidget {
           ),
         ],
         centerTitle: true,
+        bottom: PreferredSize(
+          preferredSize: Size.fromHeight(20),
+          child: SizedBox(height: 20),
+        ),
       ),
+      backgroundColor: AppColor.White,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,58 +44,53 @@ class SpaceDetailsScreen extends StatelessWidget {
   }
 }
 
-
 class ImageGallery extends StatefulWidget {
   @override
   _ImageGalleryState createState() => _ImageGalleryState();
 }
 
 class _ImageGalleryState extends State<ImageGallery> {
-  // Current selected image
   String selectedImage = 'assets/images/garage1.png';
 
-  // List of thumbnail image paths
   final List<String> thumbnails = [
     'assets/images/garage0.png',
-    'assets/images/garage1.png',
+    CARWASHING,
     'assets/images/garage2.png',
     'assets/images/garage3.png',
     'assets/images/garage4.png',
     'assets/images/garage5.png',
     'assets/images/garage6.png',
-    'assets/images/garage7.png',
+    CARWASHING,
   ];
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Stack(
-        clipBehavior: Clip.none, // Allows thumbnails to overflow
-        alignment: Alignment.bottomCenter, // Align thumbnails to the bottom of the large image
+        clipBehavior: Clip.none,
+        alignment: Alignment.bottomCenter,
         children: [
-          // Large Image
           ClipRRect(
-            borderRadius: BorderRadius.circular(15), // Rounded corners for large image
+            borderRadius: BorderRadius.circular(15),
             child: Image.asset(
               selectedImage,
-              height: 274, // Height for large image
-              width: 327,  // Width for large image
+              height: 274,
+              width: 327,
               fit: BoxFit.cover,
             ),
           ),
-
-          // Thumbnail Row Positioned Below the Large Image
           Positioned(
-            bottom: 10, // Position below the large image
+            bottom: 10,
             child: Container(
-              width: 303, // Width for thumbnail container
-              padding: EdgeInsets.symmetric(vertical: 10), // Padding for thumbnails
+              height: 66,
+              width: 303,
+              padding: EdgeInsets.symmetric(vertical: 10),
               decoration: BoxDecoration(
-                color: Colors.white, // White background
-                borderRadius: BorderRadius.circular(15), // Rounded corners
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(15),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black12, // Subtle shadow for elevation
+                    color: Colors.black12,
                     blurRadius: 5,
                     offset: Offset(0, 2),
                   ),
@@ -106,9 +111,10 @@ class _ImageGalleryState extends State<ImageGallery> {
                           });
                         },
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                          padding: const EdgeInsets.symmetric(horizontal: 3.0),
                           child: ClipRRect(
-                            borderRadius: BorderRadius.circular(10), // Rounded corners
+                            borderRadius:
+                                BorderRadius.circular(10), // Rounded corners
                             child: Image.asset(
                               thumbnails[index],
                               height: 54,
@@ -164,7 +170,8 @@ class _ImageGalleryState extends State<ImageGallery> {
                           width: 53.4,
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(0.7), // Semi-transparent background
+                            color: Colors.black.withOpacity(
+                                0.7), // Semi-transparent background
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Text(
@@ -188,49 +195,105 @@ class _ImageGalleryState extends State<ImageGallery> {
   }
 }
 
-
-
-
-
 class DetailsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text('Downtown Garage', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-          SizedBox(height: 5),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Icon(Icons.location_on, color: Colors.yellow[800]),
-              SizedBox(width: 5),
-              Text('New York, USA', style: TextStyle(color: Colors.grey)),
-              Spacer(),
-              ElevatedButton.icon(
+              Text(
+                'Downtown Garage',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  fontFamily: 'Poppins',
+                ),
+              ),
+              OutlinedButton(
                 onPressed: () {},
-                icon: Icon(Icons.map, size: 16),
-                label: Text('View on Map'),
+                style: OutlinedButton.styleFrom(
+                  minimumSize: Size(60, 27),
+                  side: BorderSide(color: AppColor.PrimaryColor),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+                child: Row(
+                  children: [
+                    Image.asset(
+                      RENTLOCATION,
+                      height: 16,
+                      width: 16,
+                      color: AppColor.PrimaryColor,
+                    ),
+                    SizedBox(width: 20),
+                    Center(
+                      child: Text(
+                        'View on Map',
+                        style: TextStyle(
+                            color: AppColor.PrimaryColor,
+                            fontSize: 10,
+                            fontFamily: 'Poppins'), // Text color
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 5),
           Row(
             children: [
-              Text('For Sale', style: TextStyle(color: Colors.grey)),
-              Spacer(),
-              Text('\$10,000', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              // Replace the Icon with an image
+              Image.asset(
+                RENTLOCATION, // Your location icon image
+                height: 16, // Adjust size as needed
+                width: 16,
+                color: AppColor.PrimaryColor,
+              ),
+              SizedBox(width: 5),
+              Text(
+                'New York, USA',
+                style: TextStyle(color: AppColor.Black),
+              ),
+              // Spacer(),
             ],
           ),
           SizedBox(height: 10),
           Row(
             children: [
-              Icon(Icons.phone, color: Colors.yellow[800]),
+              Text('For Sale', style: TextStyle(color: AppColor.Black)),
+              Spacer(),
+              Text('\$10,000',
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: AppColor.PrimaryColor)),
+            ],
+          ),
+          SizedBox(height: 10),
+          Row(
+            children: [
+              Image.asset(
+                CALL, // Your location icon image
+                height: 16, // Adjust size as needed
+                width: 16,
+                color: AppColor.PrimaryColor,
+              ),
               SizedBox(width: 5),
               Text('532 819 4770'),
               Spacer(),
-              Icon(Icons.email, color: Colors.yellow[800]),
+              Image.asset(
+                SMS, // Your location icon image
+                height: 16, // Adjust size as needed
+                width: 16,
+                color: AppColor.PrimaryColor,
+              ),
               SizedBox(width: 5),
               Text('floydmiles48@gmail.com'),
             ],
@@ -252,76 +315,146 @@ class AmenitiesList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Amenities', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+          Text('Amenities',
+              style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  fontFamily: 'Poppins')),
           SizedBox(height: 10),
-          ...amenities.map((amenity) => Row(
-                children: [
-                  Icon(Icons.check_circle, color: Colors.green),
-                  SizedBox(width: 10),
-                  Text(amenity),
-                ],
-              )),
+          Column(
+            children: amenities.map((amenity) {
+              return Padding(
+                padding: const EdgeInsets.only(
+                    bottom: 10.0), // Add spacing below each item
+                child: Row(
+                  children: [
+                    Image.asset(
+                      CHECKCIRCLE, // Your location icon image
+                      height: 16, // Adjust size as needed
+                      width: 16,
+                    ),
+                    SizedBox(width: 10), // Space between icon and text
+                    Text(
+                      amenity,
+                      style: TextStyle(fontSize: 12, fontFamily: 'Poppins'),
+                    ),
+                  ],
+                ),
+              );
+            }).toList(),
+          ),
         ],
       ),
     );
   }
 }
 
-class DescriptionSection extends StatelessWidget {
+
+
+class DescriptionSection extends StatefulWidget {
+  @override
+  _DescriptionSectionState createState() => _DescriptionSectionState();
+}
+
+class _DescriptionSectionState extends State<DescriptionSection> {
+  bool isDescriptionExpanded = false;
+  bool isLeaseTermsExpanded = false;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Description', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-          SizedBox(height: 5),
-          Text('Lorem Ipsum is simply dummy text of the printing and typesetting industry... Read More'),
-          SizedBox(height: 15),
-          Text('Lease Terms', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-          SizedBox(height: 5),
-          Text('Lorem Ipsum is simply dummy text of the printing and typesetting industry... Read More'),
+          _buildSection(
+            title: 'Description',
+            content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry...',
+            isExpanded: isDescriptionExpanded,
+            onToggle: () => setState(() => isDescriptionExpanded = !isDescriptionExpanded),
+          ),
+          SizedBox(height: 20),
+          _buildSection(
+            title: 'Lease Terms',
+            content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry...',
+            isExpanded: isLeaseTermsExpanded,
+            onToggle: () => setState(() => isLeaseTermsExpanded = !isLeaseTermsExpanded),
+          ),
         ],
       ),
     );
   }
+
+  Widget _buildSection({
+    required String title,
+    required String content,
+    required bool isExpanded,
+    required VoidCallback onToggle,
+  }) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(title, style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, fontFamily: 'Poppins')),
+        SizedBox(height: 5),
+        RichText(
+          text: TextSpan(
+            style: TextStyle(fontSize: 12, fontFamily: 'Poppins', color: Colors.black),
+            children: [
+              TextSpan(
+                text: isExpanded ? content : '${content.substring(0, 50)}...', // Show truncated content
+              ),
+              TextSpan(
+                text: isExpanded ? ' Show Less' : ' Read More',
+                style: TextStyle(color: AppColor.PrimaryColor, fontWeight: FontWeight.w600),
+                recognizer: TapGestureRecognizer()..onTap = onToggle,
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
 }
+
 
 class BottomButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(16),
-      color: Colors.grey[100],
+      color: AppColor.White,
       child: Row(
         children: [
-          Text('\$10,000', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-          Spacer(),
-          ElevatedButton.icon(
-            onPressed: () {},
-            icon: Icon(Icons.chat_bubble_outline),
-            label: Text('Chat'),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.yellow[800],
-              foregroundColor: Colors.white,
+          Text(
+            '\$10,000',
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'Poppins',
+              color: AppColor.PrimaryColor,
             ),
           ),
+          Spacer(),
+          GestureDetector(
+            onTap: () {
+              
+            },
+            child: Image.asset(CHATBUTTON),
+          ),
           SizedBox(width: 10),
-          ElevatedButton(
-            onPressed: () {},
-            child: Text('Book Visit'),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.blue,
-              foregroundColor: Colors.white,
-            ),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => FilterScreen()));
+            },
+            child: Image.asset(BOOKVISITBUTTON),
           ),
         ],
       ),
     );
   }
 }
+

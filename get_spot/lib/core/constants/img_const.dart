@@ -25,6 +25,13 @@ const SEARCH = 'assets/images/search.png';
 const NOTIFICATION = 'assets/images/notifications.png';
 const RENTLOCATION = 'assets/images/rentlocation.png';
 const FILTER = 'assets/images/filter.png';
+const CALL = 'assets/images/call.png';
+const SMS = 'assets/images/sms.png';
+const CHECKCIRCLE = 'assets/images/check-circle.png';
+const CHATBUTTON = 'assets/images/chatbutton.png';
+const BOOKVISITBUTTON = 'assets/images/bookvisitbutton.png';
+const DROPDOWN = 'assets/images/dropdown.png';
+const APPLYBUTTON = 'assets/images/applybutton.png';
 
 
 
