@@ -4,8 +4,6 @@ import 'package:get_spot/presentation/cubit/authentication/currentcustomer/curre
 import 'package:get_spot/presentation/cubit/authentication/signin/sigin_cubit.dart';
 import 'package:get_spot/presentation/cubit/authentication/login/trigger_otp_cubit.dart';
 import 'package:get_spot/presentation/screen/authentication/splash_screen.dart';
-import 'package:get_spot/presentation/screen/profile/profile.dart';
-import 'package:get_spot/presentation/screen/profile/refer_a_friend.dart';
 import 'core/injection.dart' as di;
 
 void main() {
@@ -47,7 +45,7 @@ class _MyAppState extends State<MyApp> {
           //   ),
           // ),
         ),
-        home:  ReferFriendScreen(),
+        home: SplashScreen(),
       ),
     );
   }
