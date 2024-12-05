@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:get_spot/core/constants/colors.dart';
 import 'package:get_spot/core/constants/img_const.dart';
+import 'package:get_spot/presentation/screen/buy/chat_screen.dart';
 import 'package:get_spot/presentation/screen/buy/filter_screen.dart';
 
 class SpaceDetailsScreen extends StatelessWidget {
@@ -441,7 +442,7 @@ class BottomButtons extends StatelessWidget {
           Spacer(),
           GestureDetector(
             onTap: () {
-              
+              Navigator.push(context, MaterialPageRoute(builder: (context) => ChatScreen()));
             },
             child: Image.asset(CHATBUTTON),
           ),
