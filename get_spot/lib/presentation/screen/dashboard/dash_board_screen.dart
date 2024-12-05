@@ -32,7 +32,7 @@ class HomeScreen extends StatelessWidget {
                       padding: const EdgeInsets.all(16.0),
                       shrinkWrap: true,
                       children: [
-                        _buildSection('Parking Spaces', ['Rent\nParking', 'Buy\nParking', 'Book\nParking', 'Pay\nParking'], [RENTPARKING, BUYPARKING, BOOKPARKING, PAYPARKING], context),
+                        _buildSection('Parking Space', ['Rent\nParking', 'Buy\nParking', 'Book\nParking', 'Pay\nParking'], [RENTPARKING, BUYPARKING, BOOKPARKING, PAYPARKING], context),
                         _buildSection('Lease Plan', ['Lease new\ncar', 'Lease\nBike', 'Lease used\ncar', 'New\nModels'], [LEASENEWCAR, LEASEBIKE, LEASEUSEDCAR, NEWMODELS], context),
                         _buildSection('GetSpot Services', ['Insurance', 'Car Washing', 'Rent Driver', 'EV Rescue'], [INSURANCE, CARWASHING, RENTDRIVER, EVRESCUE], context),
                         const SizedBox(height: 20),
