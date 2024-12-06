@@ -124,22 +124,28 @@ class HomeScreen extends StatelessWidget {
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           padding: EdgeInsets.zero,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 4,
+            mainAxisExtent: 110, // Increased height to allow for overflow
+          ),
           itemCount: options.length,
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
                 _navigateToScreen(context, options[index]);
               },
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  index < images.length
-                      ? Image.asset(images[index], height: 60, width: 60, fit: BoxFit.cover)
-                      : Icon(Icons.local_parking, size: 60, color: AppColor.Black),
-                  const SizedBox(height: 5),
-                  Text(options[index], textAlign: TextAlign.center, style: TextStyle(fontSize: 12, fontFamily: 'Poppins')),
-                ],
+              child: Container(
+                margin: EdgeInsets.only(bottom: 10),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    index < images.length
+                        ? Image.asset(images[index], height: 60, width: 60, fit: BoxFit.cover)
+                        : Icon(Icons.local_parking, size: 60, color: AppColor.Black),
+                    const SizedBox(height: 5),
+                    Text(options[index], textAlign: TextAlign.center, style: TextStyle(fontSize: 12, fontFamily: 'Poppins')),
+                  ],
+                ),
               ),
             );
           },

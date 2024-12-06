@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get_spot/core/constants/colors.dart';
 import 'package:get_spot/core/constants/img_const.dart';
@@ -91,7 +93,7 @@ class _BottomTabState extends State<BottomTab> {
             ),
 
             Positioned(
-              bottom: 40.0,  
+              bottom: Platform.isIOS ? 40 : MediaQuery.of(context).size.height * 0.01,
               left: MediaQuery.of(context).size.width / 2 - 22.5, 
               child: GestureDetector(
                 onTap: () {
