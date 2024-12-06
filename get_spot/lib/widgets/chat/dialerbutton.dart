@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get_spot/core/constants/colors.dart';
 import 'package:url_launcher/url_launcher.dart'; // Import url_launcher
 
 class DialerButton extends StatelessWidget {
   final String phoneNumber;
 
   // Constructor to accept the phone number
-  DialerButton({required this.phoneNumber});
+  const DialerButton({super.key, required this.phoneNumber});
 
   // Function to launch the dialer with the provided phone number
   _launchDialer() async {
@@ -27,7 +28,7 @@ class DialerButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      icon: Icon(Icons.phone, color: Colors.green), // Phone icon
+      icon: Icon(Icons.phone, color: AppColor.grey), // Phone icon
       onPressed: _launchDialer, // Trigger dialer launch
     );
   }

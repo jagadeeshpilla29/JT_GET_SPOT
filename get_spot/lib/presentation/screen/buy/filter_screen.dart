@@ -9,14 +9,16 @@ import 'package:get_spot/widgets/filter/searchbylocation.dart';
 import 'package:get_spot/widgets/filter/vehicle_size_section.dart';
 
 class FilterScreen extends StatefulWidget {
+  const FilterScreen({super.key});
+
   @override
   _FilterScreenState createState() => _FilterScreenState();
 }
 
 class _FilterScreenState extends State<FilterScreen> {
-  TextEditingController _locationController = TextEditingController();
-  TextEditingController _pincodeController = TextEditingController();
-  TextEditingController _amenitiesController = TextEditingController();
+  final TextEditingController _locationController = TextEditingController();
+  final TextEditingController _pincodeController = TextEditingController();
+  final TextEditingController _amenitiesController = TextEditingController();
 
   double _locationRadius = 0; // Location Radius Slider state
   double _priceRange = 0; // Price Slider state
@@ -48,10 +50,10 @@ class _FilterScreenState extends State<FilterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Filter'),
+        title: const Text('Filter'),
         backgroundColor: AppColor.White,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.pop(context),
         ),
       ),
@@ -66,14 +68,14 @@ class _FilterScreenState extends State<FilterScreen> {
               radius: _locationRadius,
               onChanged: (value) => setState(() => _locationRadius = value),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             
             // Location Search Field
             LocationSearchField(
               hintText: 'Search by Location',
               controller: _locationController,
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             
             // City and State Dropdowns in a Row
             Row(
@@ -85,7 +87,7 @@ class _FilterScreenState extends State<FilterScreen> {
                     onChanged: (value) => setState(() => _selectedCity = value),
                   ),
                 ),
-                SizedBox(width: 8),
+                const SizedBox(width: 8),
                 Expanded(
                   child: DropdownField(
                     hintText: 'State',
@@ -95,7 +97,7 @@ class _FilterScreenState extends State<FilterScreen> {
                 ),
               ],
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
 
             // Country and Pincode Dropdowns in a Row
             Row(
@@ -107,7 +109,7 @@ class _FilterScreenState extends State<FilterScreen> {
                     onChanged: (value) => setState(() => _selectedCountry = value),
                   ),
                 ),
-                SizedBox(width: 8),
+                const SizedBox(width: 8),
                 Expanded(
                   child: LocationSearchField(
                     hintText: 'Pincode',
@@ -116,14 +118,14 @@ class _FilterScreenState extends State<FilterScreen> {
                 ),
               ],
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             
             // Price Slider
             PriceSlider(
               values: RangeValues(0, _priceRange),
               onChanged: (values) => setState(() => _priceRange = values.end),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             
             // Space Type Dropdown
             DropdownField(
@@ -131,7 +133,7 @@ class _FilterScreenState extends State<FilterScreen> {
               value: _selectedSpaceType,
               onChanged: (value) => setState(() => _selectedSpaceType = value),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             
             // Amenities Section
             AmenitiesSection(
@@ -140,14 +142,14 @@ class _FilterScreenState extends State<FilterScreen> {
                 setState(() => _selectedAmenities[index] = value);
               },
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             
             // Other Amenities Search Field
             LocationSearchField(
               hintText: 'Enter Other Amenities',
               controller: _amenitiesController,
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             
             // Vehicle Size Section
             VehicleSizeSection(
@@ -156,7 +158,7 @@ class _FilterScreenState extends State<FilterScreen> {
                 setState(() => _selectedVehicleSizes[index] = value);
               },
             ),
-            SizedBox(height: 32),
+            const SizedBox(height: 32),
             
             // Reset and Apply Buttons
             Row(
@@ -166,14 +168,14 @@ class _FilterScreenState extends State<FilterScreen> {
                   onPressed: _resetFilters,
                   style: TextButton.styleFrom(
                     foregroundColor: AppColor.PrimaryColor,
-                    textStyle: TextStyle(
+                    textStyle: const TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  child: Text('Reset Filter'),
+                  child: const Text('Reset Filter'),
                 ),
-                SizedBox(width: 16),
+                const SizedBox(width: 16),
                 InkWell(
                   onTap: () {
                     // Logic to apply filters goes here

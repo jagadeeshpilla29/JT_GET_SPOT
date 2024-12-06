@@ -11,6 +11,8 @@ import 'package:get_spot/presentation/screen/authentication/signup_screen.dart';
 class LoginScreen extends StatelessWidget {
   final TextEditingController mobileNumberController = TextEditingController();
 
+  LoginScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -109,7 +111,7 @@ class LoginScreen extends StatelessWidget {
                       context, mobileNumberController.text);
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               Center(

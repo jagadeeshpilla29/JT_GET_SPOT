@@ -4,6 +4,8 @@ import 'package:get_spot/core/constants/img_const.dart';
 import 'package:get_spot/presentation/screen/buy/space_details.dart';
 
 class BuySellParkingSpaceListScreen extends StatefulWidget {
+  const BuySellParkingSpaceListScreen({super.key});
+
   @override
   _BuySellParkingSpaceListScreenState createState() => _BuySellParkingSpaceListScreenState();
 }
@@ -35,7 +37,7 @@ class _BuySellParkingSpaceListScreenState extends State<BuySellParkingSpaceListS
       appBar: AppBar(
         backgroundColor: AppColor.White,
         elevation: 1,
-        leading: IconButton(icon: Icon(Icons.arrow_back), onPressed: () => Navigator.pop(context)),
+        leading: IconButton(icon: const Icon(Icons.arrow_back), onPressed: () => Navigator.pop(context)),
         title: Text('Buy Sell Parking Space', style: TextStyle(color: AppColor.Black, fontWeight: FontWeight.w600)),
         centerTitle: true,
       ),
@@ -65,12 +67,12 @@ class _BuySellParkingSpaceListScreenState extends State<BuySellParkingSpaceListS
                       ),
                     ),
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   GestureDetector(onTap: () {}, child: Image.asset(FILTER)),
                 ],
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Align(
               alignment: Alignment.centerLeft,
               child: Padding(
@@ -78,7 +80,7 @@ class _BuySellParkingSpaceListScreenState extends State<BuySellParkingSpaceListS
                 child: Text('List', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: AppColor.Black)),
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Expanded(
               child: ListView.builder(
                 itemCount: parkingSpaces.length,
@@ -86,7 +88,7 @@ class _BuySellParkingSpaceListScreenState extends State<BuySellParkingSpaceListS
                   final parkingSpace = parkingSpaces[index];
                   
                   return Card(
-                    margin: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                    margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                     color: AppColor.White,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
                     child: 
@@ -97,7 +99,7 @@ class _BuySellParkingSpaceListScreenState extends State<BuySellParkingSpaceListS
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           ClipRRect(
-                              borderRadius: BorderRadius.only(topLeft: Radius.circular(15), bottomLeft: Radius.circular(15)),
+                              borderRadius: const BorderRadius.only(topLeft: Radius.circular(15), bottomLeft: Radius.circular(15)),
                               child: Image.asset(parkingSpace['image'], fit: BoxFit.cover)),
                           Expanded(
                             child: Padding(
@@ -122,11 +124,11 @@ class _BuySellParkingSpaceListScreenState extends State<BuySellParkingSpaceListS
                                   Row(
                                     children: [
                                       Image.asset(RENTLOCATION, height: 16, width: 16, fit: BoxFit.contain),
-                                      SizedBox(width: 4),
+                                      const SizedBox(width: 4),
                                       Expanded(child: Text(parkingSpace['location'], style: TextStyle(color: AppColor.Black, fontSize: 12), overflow: TextOverflow.ellipsis)),
                                     ],
                                   ),
-                                  SizedBox(height: 8),
+                                  const SizedBox(height: 8),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
@@ -143,7 +145,7 @@ class _BuySellParkingSpaceListScreenState extends State<BuySellParkingSpaceListS
                                       ),
                                     ],
                                   ),
-                                  Spacer(),
+                                  const Spacer(),
                                   Row(
                                     children: [
                                       ElevatedButton(
@@ -151,8 +153,8 @@ class _BuySellParkingSpaceListScreenState extends State<BuySellParkingSpaceListS
                                           Navigator.push(context, MaterialPageRoute(builder: (context) =>SpaceDetailsScreen()));
                                           print("object");
                                         },
+                                        style: ElevatedButton.styleFrom(backgroundColor: AppColor.PrimaryColor, foregroundColor: AppColor.Black, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)), minimumSize: const Size(82, 32), padding: EdgeInsets.zero),
                                         child: Text('Book Visit', style: TextStyle(fontSize: 10)),
-                                        style: ElevatedButton.styleFrom(backgroundColor: AppColor.PrimaryColor, foregroundColor: AppColor.Black, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)), minimumSize: Size(82, 32), padding: EdgeInsets.zero),
                                       ),
                                       SizedBox(
                                         width: 101,
