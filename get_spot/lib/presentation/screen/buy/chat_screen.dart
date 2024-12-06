@@ -141,6 +141,7 @@ class _ChatScreenState extends State<ChatScreen> {
       ),
     );
   }
+  //
 
   Widget _buildFileMessage(File file) {
     return GestureDetector(
