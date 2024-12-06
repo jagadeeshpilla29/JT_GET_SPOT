@@ -5,7 +5,7 @@ class PriceSlider extends StatelessWidget {
   final RangeValues values;
   final Function(RangeValues) onChanged;
 
-  const PriceSlider({
+  const PriceSlider({super.key, 
     required this.values,
     required this.onChanged,
   });
@@ -15,7 +15,7 @@ class PriceSlider extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Price', style: TextStyle(fontWeight: FontWeight.bold)),
+        const Text('Price', style: TextStyle(fontWeight: FontWeight.bold)),
         RangeSlider(
           values: values,
           min: 0,
@@ -31,16 +31,16 @@ class PriceSlider extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('\$0'), // Minimum value
+            const Text('\$0'), // Minimum value
             Text(
               '\$${RangeValues(0, values.end).start.round()}', // Current start value
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: const TextStyle(fontWeight: FontWeight.bold),
             ),
             Text(
               '\$${RangeValues(0, values.end).end.round()}', // Current end value
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: const TextStyle(fontWeight: FontWeight.bold),
             ),
-            Text('\$10,000'), // Maximum value
+            const Text('\$10,000'), // Maximum value
           ],
         ),
       ],

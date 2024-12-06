@@ -6,6 +6,8 @@ import 'package:get_spot/core/constants/img_const.dart';
 import 'package:get_spot/presentation/screen/dashboard/dash_board_screen.dart';
 
 class BottomTab extends StatefulWidget {
+  const BottomTab({super.key});
+
   @override
   _BottomTabState createState() => _BottomTabState();
 }
@@ -26,7 +28,7 @@ class _BottomTabState extends State<BottomTab> {
     return Scaffold(
       body: _pages[_currentIndex], 
       bottomNavigationBar: PreferredSize(
-        preferredSize: Size.fromHeight(50),  
+        preferredSize: const Size.fromHeight(50),  
         child: Stack(
           children: [
            
@@ -44,7 +46,7 @@ class _BottomTabState extends State<BottomTab> {
               showSelectedLabels: true,
               showUnselectedLabels: true,
               iconSize: 30,  
-              items: [
+              items: const [
                 BottomNavigationBarItem(
                   icon: Padding(
                     padding: EdgeInsets.only(top: 8.0),
@@ -108,7 +110,7 @@ class _BottomTabState extends State<BottomTab> {
                   ),
                   child: Center(
                     child: ImageIcon(
-                      AssetImage(SCANNER),
+                      const AssetImage(SCANNER),
                       size: 45,  // Adjusted size of the center icon
                       color: AppColor.Black,
                     ),
@@ -126,29 +128,37 @@ class _BottomTabState extends State<BottomTab> {
 // Example page widgets for each tab
 
 class ListParkingPage extends StatelessWidget {
+  const ListParkingPage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('List Parking Page'));
+    return const Center(child: Text('List Parking Page'));
   }
 }
 
 class QRCodePage extends StatelessWidget {
+  const QRCodePage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('QR Code Page'));
+    return const Center(child: Text('QR Code Page'));
   }
 }
 
 class BookParkingPage extends StatelessWidget {
+  const BookParkingPage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('Book Parking Page'));
+    return const Center(child: Text('Book Parking Page'));
   }
 }
 
 class SettingsPage extends StatelessWidget {
+  const SettingsPage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('Settings Page'));
+    return const Center(child: Text('Settings Page'));
   }
 }

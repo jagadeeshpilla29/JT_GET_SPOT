@@ -5,7 +5,7 @@ class VehicleSizeSection extends StatelessWidget {
   final List<bool> selectedSizes;
   final Function(int, bool) onChanged;
 
-  const VehicleSizeSection({
+  const VehicleSizeSection({super.key, 
     required this.selectedSizes,
     required this.onChanged,
   });
@@ -17,11 +17,11 @@ class VehicleSizeSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        const Text(
           'Vehicle Size Compatibility',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal, // Enable horizontal scrolling
           child: Row(
@@ -50,7 +50,7 @@ class VehicleSizeSection extends StatelessWidget {
                       fontWeight: selectedSizes[index] ? FontWeight.bold : FontWeight.normal, // Bold if selected
                     ),
                   ),
-                  SizedBox(width: 16), // Space between each checkbox item
+                  const SizedBox(width: 16), // Space between each checkbox item
                 ],
               );
             }),

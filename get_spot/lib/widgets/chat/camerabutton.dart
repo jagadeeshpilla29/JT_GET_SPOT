@@ -6,7 +6,7 @@ import 'dart:io';
 class CameraButton extends StatefulWidget {
   final void Function(File image) onImageCaptured;
 
-  const CameraButton({Key? key, required this.onImageCaptured}) : super(key: key);
+  const CameraButton({super.key, required this.onImageCaptured});
 
   @override
   _CameraButtonState createState() => _CameraButtonState();

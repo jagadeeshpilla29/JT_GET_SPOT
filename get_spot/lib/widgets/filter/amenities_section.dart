@@ -5,7 +5,7 @@ class AmenitiesSection extends StatelessWidget {
   final List<bool> selectedAmenities;
   final Function(int, bool) onChanged;
 
-   AmenitiesSection({
+   AmenitiesSection({super.key, 
     required this.selectedAmenities,
     required this.onChanged,
   });
@@ -22,7 +22,7 @@ class AmenitiesSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Amenities', style: TextStyle(fontWeight: FontWeight.bold)),
+        const Text('Amenities', style: TextStyle(fontWeight: FontWeight.bold)),
         Column(
           children: List.generate(amenities.length, (index) {
             return Row(

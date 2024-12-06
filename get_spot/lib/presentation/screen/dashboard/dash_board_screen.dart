@@ -7,6 +7,8 @@ import 'package:get_spot/widgets/recentPlace_widget.dart';
 import 'package:get_spot/widgets/slider_widget.dart';
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -135,7 +137,7 @@ class HomeScreen extends StatelessWidget {
                 _navigateToScreen(context, options[index]);
               },
               child: Container(
-                margin: EdgeInsets.only(bottom: 10),
+                margin: const EdgeInsets.only(bottom: 10),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -143,7 +145,7 @@ class HomeScreen extends StatelessWidget {
                         ? Image.asset(images[index], height: 60, width: 60, fit: BoxFit.cover)
                         : Icon(Icons.local_parking, size: 60, color: AppColor.Black),
                     const SizedBox(height: 5),
-                    Text(options[index], textAlign: TextAlign.center, style: TextStyle(fontSize: 12, fontFamily: 'Poppins')),
+                    Text(options[index], textAlign: TextAlign.center, style: const TextStyle(fontSize: 12, fontFamily: 'Poppins')),
                   ],
                 ),
               ),
@@ -212,6 +214,8 @@ class HomeScreen extends StatelessWidget {
 
 
 class PosterWidget extends StatelessWidget {
+  const PosterWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -251,7 +255,7 @@ class PosterWidget extends StatelessWidget {
                     
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
                     // Add your button action here

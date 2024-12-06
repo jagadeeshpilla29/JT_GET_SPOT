@@ -8,7 +8,7 @@ import 'core/injection.dart' as di;
 
 void main() {
    di.init(); 
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -45,7 +45,7 @@ class _MyAppState extends State<MyApp> {
           //   ),
           // ),
         ),
-        home: SplashScreen(),
+        home: const SplashScreen(),
       ),
     );
   }

@@ -19,7 +19,7 @@ class CurrentCustomerCubit extends Cubit<CurrentCustomerState> {
     try {
       emit(CurrentCustomerLoading());
       final currentCustomerEntity = await currentCustomerValidationUseCase();
-      emit(CurrentCustomerLoaded(currentCustomerEntity as CurrentCustomerEntity));
+      emit(CurrentCustomerLoaded(currentCustomerEntity));
     } catch (e) {
       emit(CurrentCustomerError('Failed to current customer data: ${e.toString()}'));
     }

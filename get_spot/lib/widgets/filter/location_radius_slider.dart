@@ -5,7 +5,7 @@ class LocationRadiusSlider extends StatelessWidget {
   final double radius;
   final Function(double) onChanged;
 
-  const LocationRadiusSlider({
+  const LocationRadiusSlider({super.key, 
     required this.radius,
     required this.onChanged,
   });
@@ -15,7 +15,7 @@ class LocationRadiusSlider extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        const Text(
           'Location Radius',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
@@ -31,7 +31,7 @@ class LocationRadiusSlider extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('0km'),
+            const Text('0km'),
             Expanded(
               child: Align(
                 alignment: Alignment.center,
@@ -44,7 +44,7 @@ class LocationRadiusSlider extends StatelessWidget {
                 ),
               ),
             ),
-            Text('10km'),
+            const Text('10km'),
           ],
         ),
       ],

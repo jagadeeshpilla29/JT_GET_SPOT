@@ -6,11 +6,11 @@ class CustomButton extends StatelessWidget {
   final Widget? destinationPage; 
 
   const CustomButton({
-    Key? key,
+    super.key,
     required this.buttonText,
     required this.onPressed,
     this.destinationPage,  
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -13,8 +13,8 @@ class TriggerOtpModel {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = {};
-    data['message'] = this.message;
-    data['status'] = this.status;
+    data['message'] = message;
+    data['status'] = status;
     if (this.data != null) {
       data['data'] = this.data!.toJson();
     }
@@ -39,10 +39,10 @@ class Data {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = {};
-    data['id'] = this.id;
-    data['otpType'] = this.otpType;
-    data['creationTime'] = this.creationTime;
-    data['otp'] = this.otp;
+    data['id'] = id;
+    data['otpType'] = otpType;
+    data['creationTime'] = creationTime;
+    data['otp'] = otp;
     return data;
   }
 }

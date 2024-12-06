@@ -9,7 +9,7 @@ class DropdownField extends StatelessWidget {
   final String? value;
   final Function(String?)? onChanged;
 
-  const DropdownField({
+  const DropdownField({super.key, 
     required this.hintText, 
     this.options, 
     this.dropdownIconPath,
@@ -41,7 +41,7 @@ class DropdownField extends StatelessWidget {
           height: 5.65,
         ),
       ),
-      icon: SizedBox.shrink(), // Remove the default arrow
+      icon: const SizedBox.shrink(), // Remove the default arrow
       hint: Center(
         child: Text(
           hintText,

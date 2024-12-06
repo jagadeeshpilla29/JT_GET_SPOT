@@ -55,7 +55,7 @@ class ProfileScreen extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                       SizedBox(height: 8),
+                       const SizedBox(height: 8),
                       const Text(
                         'Emery Aminoff',
                         style: TextStyle(
@@ -114,7 +114,7 @@ class ProfileScreen extends StatelessWidget {
                                   color: AppColor.Black),
                             ),
                           ),
-                          SizedBox(height: 4),
+                          const SizedBox(height: 4),
                           Center(
                             child: Text(
                               'Wallet',
@@ -576,7 +576,7 @@ class ProfileScreen extends StatelessWidget {
                       Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => ReferFriendScreen (),
+        builder: (context) => const ReferFriendScreen (),
       ),);
                     },
                   ),
