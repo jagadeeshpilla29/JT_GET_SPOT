@@ -28,12 +28,12 @@ dependencies:
   internet_connection_checker_plus: ^2.5.2
   get_it: ^8.0.0
   carousel_slider: ^5.0.0
+  dotted_border: ^2.0.0
   flutter_chat_ui: ^1.6.15
   url_launcher: ^6.1.7
   image_picker: ^0.8.7+5
   file_picker: ^5.2.8
  
-
 
 dev_dependencies:
   flutter_test:
