@@ -12,7 +12,7 @@ class BaseCubit extends Cubit<ApiStatus> {
   }
 
   Future<void> initializeDioClient() async {
-    final secureStorage = FlutterSecureStorage();
+    final secureStorage = const FlutterSecureStorage();
     dioClient = DioClient(Dio(), secureStorage: secureStorage);
   }
 }

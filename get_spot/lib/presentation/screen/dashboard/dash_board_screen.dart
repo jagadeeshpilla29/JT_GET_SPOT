@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get_spot/core/constants/colors.dart';
 import 'package:get_spot/core/constants/img_const.dart';
-import 'package:get_spot/presentation/screen/rent%20parking%20space/rent_parking_space_list.dart';
-import 'package:get_spot/presentation/screen/rent%20your%20parking%20space/parking_space_detali_screen.dart';
+import 'package:get_spot/presentation/screen/buy/buy_sell_parking_space_list.dart';
+import 'package:get_spot/presentation/screen/sell/parking_space_detali_screen.dart';
 import 'package:get_spot/widgets/recentPlace_widget.dart';
 import 'package:get_spot/widgets/slider_widget.dart';
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,7 +66,7 @@ class HomeScreen extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(10),
-              child: Image.asset('assets/images/profileimg.png', width: 45, height: 45, fit: BoxFit.cover),
+              child: Image.asset(PROFILEIMG, width: 45, height: 45, fit: BoxFit.cover),
             ),
             const SizedBox(width: 15),
             Expanded(
@@ -124,22 +126,28 @@ class HomeScreen extends StatelessWidget {
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           padding: EdgeInsets.zero,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 4,
+            mainAxisExtent: 110, // Increased height to allow for overflow
+          ),
           itemCount: options.length,
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
                 _navigateToScreen(context, options[index]);
               },
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  index < images.length
-                      ? Image.asset(images[index], height: 60, width: 60, fit: BoxFit.cover)
-                      : Icon(Icons.local_parking, size: 60, color: AppColor.Black),
-                  const SizedBox(height: 5),
-                  Text(options[index], textAlign: TextAlign.center, style: TextStyle(fontSize: 12, fontFamily: 'Poppins')),
-                ],
+              child: Container(
+                margin: const EdgeInsets.only(bottom: 10),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    index < images.length
+                        ? Image.asset(images[index], height: 60, width: 60, fit: BoxFit.cover)
+                        : Icon(Icons.local_parking, size: 60, color: AppColor.Black),
+                    const SizedBox(height: 5),
+                    Text(options[index], textAlign: TextAlign.center, style: const TextStyle(fontSize: 12, fontFamily: 'Poppins')),
+                  ],
+                ),
               ),
             );
           },
@@ -156,7 +164,7 @@ class HomeScreen extends StatelessWidget {
         break;
       case 'Buy\nParking':
             print('BuyParking');
-        Navigator.push(context, MaterialPageRoute(builder: (context) => RentParkingSpaceScreen()));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => BuySellParkingSpaceListScreen()));
         break;
       case 'Book\nParking':
       print('BookParking');
@@ -204,14 +212,10 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class RentParkingScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: Text('Rent Parking Screen')));
-  }
-}
 
 class PosterWidget extends StatelessWidget {
+  const PosterWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -251,7 +255,7 @@ class PosterWidget extends StatelessWidget {
                     
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
                     // Add your button action here

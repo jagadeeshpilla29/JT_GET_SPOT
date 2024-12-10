@@ -4,7 +4,9 @@ const MAIL = 'assets/images/mail.png';
 const MESSAGEBOX = 'assets/images/messageBox.png';
 const PARKING = 'assets/images/carparking.png';
 const PHONE = 'assets/images/phone.png';
+const PHONE2 = 'assets/images/phone2.png';
 const SCANNER = 'assets/images/scan.png';
+const PROFILEIMG = 'assets/images/profileimg.png';
 const SETTINGS = 'assets/images/settings.png';
 const SLIDER1 = 'assets/images/slider1.png';
 const RENTPARKING = 'assets/images/rentparking.png';
@@ -25,6 +27,18 @@ const SEARCH = 'assets/images/search.png';
 const NOTIFICATION = 'assets/images/notifications.png';
 const RENTLOCATION = 'assets/images/rentlocation.png';
 const FILTER = 'assets/images/filter.png';
+const CALL = 'assets/images/call.png';
+const SMS = 'assets/images/sms.png';
+const CHECKCIRCLE = 'assets/images/check-circle.png';
+const CHATBUTTON = 'assets/images/chatbutton.png';
+const BOOKVISITBUTTON = 'assets/images/bookvisitbutton.png';
+const DROPDOWN = 'assets/images/dropdown.png';
+const APPLYBUTTON = 'assets/images/applybutton.png';
+const VIDEO = 'assets/images/video.png';
+const DOTS = 'assets/images/3dots.png';
+const SEND = 'assets/images/send.png';
+const ATTACH = 'assets/images/attach.png';
+const CAMERA = 'assets/images/camera.png';
 
 
 

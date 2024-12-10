@@ -8,13 +8,13 @@ class SignInModel {
   SignInModel.fromJson(Map<String, dynamic> json) {
     message = json['message'];
     status = json['status'];
-    data = json['data'] != null ? new Data.fromJson(json['data']) : null;
+    data = json['data'] != null ? Data.fromJson(json['data']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['message'] = this.message;
-    data['status'] = this.status;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['message'] = message;
+    data['status'] = status;
     if (this.data != null) {
       data['data'] = this.data!.toJson();
     }
@@ -51,14 +51,14 @@ class Data {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['token'] = this.token;
-    data['refreshToken'] = this.refreshToken;
-    data['type'] = this.type;
-    data['id'] = this.id;
-    data['email'] = this.email;
-    data['roles'] = this.roles;
-    data['primaryContact'] = this.primaryContact;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['token'] = token;
+    data['refreshToken'] = refreshToken;
+    data['type'] = type;
+    data['id'] = id;
+    data['email'] = email;
+    data['roles'] = roles;
+    data['primaryContact'] = primaryContact;
     return data;
   }
 }

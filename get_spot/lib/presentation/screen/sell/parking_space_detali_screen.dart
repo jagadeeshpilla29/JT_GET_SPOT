@@ -3,18 +3,20 @@ import 'package:get_spot/components/custom_button.dart';
 import 'package:get_spot/core/constants/colors.dart';
 
 class ParkingSpaceDetailScreen extends StatelessWidget {
+  const ParkingSpaceDetailScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.White,
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
-        title: Text(
+        title: const Text(
           "Rent Your Parking Space",
           style: TextStyle(
             fontFamily: 'poppins',
@@ -30,7 +32,7 @@ class ParkingSpaceDetailScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              child: Text(
+              child: const Text(
                 "Parking Space Detail",
                 style: TextStyle(
                     fontWeight: FontWeight.w500,
@@ -49,7 +51,7 @@ class ParkingSpaceDetailScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 _buildInputField('City', 157.5, showIcon: true),
-                SizedBox(width: 16),
+                const SizedBox(width: 16),
                 _buildInputField('State', 157.5, showIcon: true),
               ],
             ),
@@ -58,7 +60,7 @@ class ParkingSpaceDetailScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 _buildInputField('Country', 157.5, showIcon: true),
-                SizedBox(width: 16),
+                const SizedBox(width: 16),
                 _buildInputField('Pin Code', 157.5, showIcon: false),
               ],
             ),
@@ -66,7 +68,7 @@ class ParkingSpaceDetailScreen extends StatelessWidget {
             const SizedBox(height: 16),
             Container(
               height: 86,
-              padding: EdgeInsets.symmetric(horizontal: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 16),
               decoration: BoxDecoration(
                 color: AppColor.White2,
                 borderRadius: BorderRadius.circular(16),
@@ -87,7 +89,7 @@ class ParkingSpaceDetailScreen extends StatelessWidget {
             ),
             const SizedBox(height: 24),
             Container(
-              child: Text(
+              child: const Text(
                 'Space Type',
                 style: TextStyle(
                     fontSize: 16,
@@ -100,9 +102,9 @@ class ParkingSpaceDetailScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 _spaceField(
-                    context, AssetImage('assets/images/garage.png'), 'Garage'),
-                SizedBox(width: 16),
-                _spaceField(context, AssetImage('assets/images/driveway.png'),
+                    context, const AssetImage('assets/images/garage.png'), 'Garage'),
+                const SizedBox(width: 16),
+                _spaceField(context, const AssetImage('assets/images/driveway.png'),
                     'Driveway'),
               ],
             ),
@@ -110,16 +112,16 @@ class ParkingSpaceDetailScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                _spaceField(context, AssetImage('assets/images/openlot.png'),
+                _spaceField(context, const AssetImage('assets/images/openlot.png'),
                     'Open Lot'),
-                SizedBox(width: 16),
+                const SizedBox(width: 16),
                 _spaceField(
                     context,
-                    AssetImage('assets/images/coveredspace.png'),
+                    const AssetImage('assets/images/coveredspace.png'),
                     'Covered Space'),
               ],
             ),
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
             CustomButton(
                 buttonText: 'Continue', onPressed: () {  }, ),
             const SizedBox(height: 16),
@@ -133,7 +135,7 @@ class ParkingSpaceDetailScreen extends StatelessWidget {
     return Container(
       width: 155.5,
       height: 113,
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         color: AppColor.White2,
         borderRadius: BorderRadius.circular(16),
@@ -155,12 +157,12 @@ class ParkingSpaceDetailScreen extends StatelessWidget {
               ),
             ),
           ),
-          Spacer(),
+          const Spacer(),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 14),
+            padding: const EdgeInsets.symmetric(horizontal: 14),
             child: Text(
               text,
-              style: TextStyle(
+              style: const TextStyle(
                 fontFamily: 'Poppins',
                 fontWeight: FontWeight.w500,
                 fontSize: 14,
@@ -176,7 +178,7 @@ class ParkingSpaceDetailScreen extends StatelessWidget {
 
   Widget _buildTextField(String label) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
         color: AppColor.White2,
         borderRadius: BorderRadius.circular(16),
@@ -194,7 +196,7 @@ class ParkingSpaceDetailScreen extends StatelessWidget {
     return Container(
       width: width,
       height: 56,
-      padding: EdgeInsets.symmetric(horizontal: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
         color: AppColor.White2,
         borderRadius: BorderRadius.circular(16),

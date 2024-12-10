@@ -4,6 +4,8 @@ import 'package:get_spot/presentation/screen/authentication/login_screen.dart';
 import 'package:get_spot/presentation/screen/authentication/signup_screen.dart';
 
 class SplashLoginScreen extends StatelessWidget {
+  const SplashLoginScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -32,7 +34,7 @@ class SplashLoginScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 100,
                 ),
                 Container(

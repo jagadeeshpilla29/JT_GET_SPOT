@@ -7,14 +7,14 @@ class SubscriptionPlan extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Refer a Friend',
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
         ),
         centerTitle: true, // Centers the title
         backgroundColor: Colors.blue, // Customize your app bar color
       ),
-      body: Center(
+      body: const Center(
         child: Text(
           'Refer a Friend Page Content',
           style: TextStyle(fontSize: 16),

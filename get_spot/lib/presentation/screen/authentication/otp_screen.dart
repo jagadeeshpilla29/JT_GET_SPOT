@@ -13,18 +13,18 @@ class OtpScreen extends StatelessWidget {
   final String otp;
   final String mobileNumber;
 
-  OtpScreen({required this.mobileNumber, required this.otp});
+  OtpScreen({super.key, required this.mobileNumber, required this.otp});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Enter OTP',
           style: TextStyle(fontSize: 24, color: Colors.black),
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -36,7 +36,7 @@ class OtpScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 20), 
+            const SizedBox(height: 20), 
             Center(
               child: Image.asset(
                 'assets/images/messageBox.png',
@@ -45,7 +45,7 @@ class OtpScreen extends StatelessWidget {
                 fit: BoxFit.contain,
               ),
             ),
-            SizedBox(height: 20), 
+            const SizedBox(height: 20), 
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
               child: Column(
@@ -54,19 +54,19 @@ class OtpScreen extends StatelessWidget {
                   Center(
                     child: Text(
                       'We have sent OTP on your mobile: +91 $mobileNumber',
-                      style: TextStyle(color: Colors.black),
+                      style: const TextStyle(color: Colors.black),
                     ),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   Center(
                     child: Text(
                       'OTP: $otp',
-                      style: TextStyle(color: Colors.grey, fontSize: 16, fontStyle: FontStyle.normal),
+                      style: const TextStyle(color: Colors.grey, fontSize: 16, fontStyle: FontStyle.normal),
                     ),
                   ),
-                  SizedBox(height: 32),
+                  const SizedBox(height: 32),
                   Center(child: _otpInput(context)),
-                  SizedBox(height: 32),
+                  const SizedBox(height: 32),
                   CustomButton(
                     buttonText: 'Continue',
                     onPressed: () {
@@ -74,14 +74,14 @@ class OtpScreen extends StatelessWidget {
                       signInCubit.SignIn(context, mobileNumber, otpFieldController.text);
                     },
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   Center(
                     child: GestureDetector(
                       onTap: () {
                         final triggerOtpCubit = context.read<TriggerOtpCubit>();
                         triggerOtpCubit.fetchOtp(context, mobileNumber);
                       },
-                      child: Text.rich(
+                      child: const Text.rich(
                         TextSpan(
                           text: "Didn't receive an OTP? ",
                           style: TextStyle(color: Colors.black),
@@ -95,7 +95,7 @@ class OtpScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                 ],
               ),
             ),
@@ -122,9 +122,9 @@ class OtpScreen extends StatelessWidget {
           defaultPinTheme: PinTheme(
             width: 45,
             height: 45,
-            textStyle: TextStyle(fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
+            textStyle: const TextStyle(fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
             decoration: BoxDecoration(
-              border: Border.all(color: Color(0xFFE3B54A)),
+              border: Border.all(color: const Color(0xFFE3B54A)),
               borderRadius: BorderRadius.circular(8),
             ),
           ),

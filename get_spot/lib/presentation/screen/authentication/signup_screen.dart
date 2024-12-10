@@ -11,6 +11,8 @@ class SignupScreen extends StatelessWidget {
   final TextEditingController mobileNumberController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
 
+  SignupScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
